@@ -6,4 +6,4 @@ Koska tehtävän anto oli hyvin vapaa käytin verkkoliikenteen analysointiin wir
 
 Kuvassa nähdään tcp protocolla muodostavan handshaken hakemani osoitteen kanssa. Yleisesti oletuksena on, että liikennettä näkyisi vain yksi jokaista kohtaa ja tässä vaiheessa ei riitä aika sen tutkimiseen. Tämä kyllä johtuu siitä, että liikenne lähtee kahdesta eri portista, mutta en osaa sanoi, että miksi näin tapahtuu. Kuitenkin tcp handshaken jälkeen nähdään, että yhteys on onnistunut, koska get http pyyntö meni hakemalleni sivulle. Get pyynnön avaamalla nähdään mihin osoitteeseen selain otti yhteyden.
 
-kuva
+![Alt text](/H0startingtest/h0http.png)
