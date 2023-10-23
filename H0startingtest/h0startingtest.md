@@ -1,6 +1,6 @@
 #h0 Alkutesti
 ## a) Sieppaa ja analysoi verkkoliikennettä. 
-Koska tehtävän anto oli hyvin vapaa käytin verkkoliikenteen analysointiin wirehark työkalua. Yritin tarkastella TCP handshakea (3-way handshake). TCP käyttää kolmivaiheista kättelyä (three-way handshake) luodakseen luotettavan yhteyden laitteiden välille. Yhteyden muodostaminen koostuu kolmesta vaiheesta: SYN, SYN-ACK ja ACK. Yhteyden tarkastelua varten hain selaimella helsec.fi osoitetta. Tulos oli seuraava:
+Koska tehtävän anto oli hyvin vapaa käytin verkkoliikenteen analysointiin wirehark työkalua.  Yritin tarkastella TCP handshakea (3-way handshake). TCP käyttää kolmivaiheista kättelyä (three-way handshake) luodakseen luotettavan yhteyden laitteiden välille. Yhteyden muodostaminen koostuu kolmesta vaiheesta: SYN, SYN-ACK ja ACK. Yhteyden tarkastelua varten hain selaimella helsec.fi osoitetta. Tulos oli seuraava (piilotin tulosteesta ip osoitteet varmuuden vuoksi):
 
 ![Alt text](/H0startingtest/h0startingtest.png)
 
