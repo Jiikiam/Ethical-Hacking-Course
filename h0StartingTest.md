@@ -1,3 +1,13 @@
 #h0 Alkutesti
 ## a) Sieppaa ja analysoi verkkoliikennettä. 
-Raportin saa julkaista heti ja sitä mukaa, kun se valmistuu. Muista viitata tämän kurssin tehtäväsivuun, ohjekirjoihin, raportteihin ja kaikkiin muihinkin käyttämiisi lähteisiin. Analyysi on tärkeä osa työtä. Voit käyttää haluamiasi työkaluja. Seuraa ajan kulkua, jotta ehdit palauttaa raportin ja rinnakkaisarvioida kaksi työtä. Yksilötyö. Kaikkia julkisessa Internetissä olevia lähteitä saa käyttää. Keskustelu ja yhteistyö on alkutestissä kielletty. Tehtäviä saa aloittaa vasta, kun on hyväksynyt kurssin säännöt Moodlessa.
+Koska tehtävän anto oli hyvin vapaa käytin verkkoliikenteen analysointiin wirehark työkalua. Yritin tarkastella TCP handshakea (3-way handshake). TCP käyttää kolmivaiheista kättelyä (three-way handshake) luodakseen luotettavan yhteyden laitteiden välille. Yhteyden muodostaminen koostuu kolmesta vaiheesta: SYN, SYN-ACK ja ACK. Yhteyden tarkastelua varten hain selaimella helsec.fi osoitetta. Tulos oli seuraava:
+
+Kuva
+
+Kuvassa nähdään tcp protocolla muodostavan handshaken hakemani osoitteen kanssa. Yleisesti oletuksena on, että liikennettä näkyisi vain yksi jokaista kohtaa ja tässä vaiheessa ei riitä aika sen tutkimiseen. Tämä kyllä johtuu siitä, että liikenne lähtee kahdesta eri portista, mutta en osaa sanoi, että miksi näin tapahtuu. Kuitenkin tcp handshaken jälkeen nähdään, että yhteys on onnistunut, koska get http pyyntö meni hakemalleni sivulle. Get pyynnön avaamalla nähdään mihin osoitteeseen selain otti yhteyden.
+
+kuva
+
+
+
+
