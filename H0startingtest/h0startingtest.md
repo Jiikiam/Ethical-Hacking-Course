@@ -10,4 +10,4 @@ Kuvassa nähdään tcp protocolla muodostavan handshaken hakemani osoitteen kans
 
 # Lähteet
 
-[I'm an inline-style link](https://www.google.com](https://terokarvinen.com/2023/eettinen-hakkerointi-2023/)https://terokarvinen.com/2023/eettinen-hakkerointi-2023/)
+[Tero Karvinen Ethical Hacking 2023](https://www.google.com](https://terokarvinen.com/2023/eettinen-hakkerointi-2023/)https://terokarvinen.com/2023/eettinen-hakkerointi-2023/)
