@@ -4,14 +4,15 @@ Note: Assignment instructions have been given in Finnish, however, the I will an
 
 ## x) Lue/katso ja tiivistä (Read/watch and summarize). (Santos et al: The Art of Hacking (Video Collection): [..] 4.3 Surveying Essential Tools for Active Reconnaissance. Hutchins et al 2011: Intelligence-Driven Computer Network Defense Informed by Analysis of Adversary Campaigns and Intrusion Kill Chains, chapters Abstract, 3.2 Intrusion Kill Chain.)
 
-active reconnaissance differs from passive recon because now your actions can be seen and packets are sent to the target new work. (The illegal part starts)
+Active reconnaissance differs from passive recon because now your actions can be seen and packets are sent to the target new work. (The illegal part starts)
 
-Active recon. Can be noticed unlike passive recon.
+Active recon can be noticed unlike passive recon.
 - Port scanning some new info and maybe include some passive recon info
 - Vulnerability scans
-- Often can be noticable, but a lot of times no one doesnt look the logs
+- Often can be noticable, but mentioned that many times no one doesn't look the logs
 
 Video states that active recon is very important part of the hacking process
+
 Methology
 Port Scanning
   - confirm passive recon phase open ports and find more open ports (!!nmap!!)/ Masscan fastest port scanner. Not as versitile as nmap. Udpprotoscanner for udp ports.
