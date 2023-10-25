@@ -49,7 +49,7 @@ Level 0 command: ssh bandit0@bandit.labs.overthewire.org -p2220 and password: ba
 Level 1 commands: ls, cat readme. The readme file contained the following string: NH2SXQwcBdpmTEzi3bvBHMM9H66vVXjL
 Level 2 commands: ssh bandit1@bandit.labs.overthewire.org -p2220 and password bandit1. ls -la, cat < -.
 
-![Alt text](/h1 Hacker Warmup/h1.1.png)
+![Alt text](/h1HackerWarmup/h1.1.png)
 
 ![Alt text](/h1 Hacker Warmup/h1.2.png)
 
