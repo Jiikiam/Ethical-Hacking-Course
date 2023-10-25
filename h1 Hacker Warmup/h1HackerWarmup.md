@@ -50,6 +50,7 @@ Level 1 commands: ls, cat readme. The readme file contained the following string
 Level 2 commands: ssh bandit1@bandit.labs.overthewire.org -p2220 and password bandit1. ls -la, cat < -.
 
 ![Alt text](h1 Hacker Warmup/h1.1.png)
+
 ![Alt text](h1 Hacker Warmup/h1.2.png)
 
 ## b) Ratkaise Challenge.fi:stä yksi tehtävä (Complete one task from Challenge.fi.) [Genz challenge 2021](https://2021.challenge.fi/challenges).
@@ -74,6 +75,7 @@ I used nmap to scan the tcp ports. As found in the picture only one port is open
 
 	$ nmap localhost
  	$ nmap --top-ports 1000 localhost
+  
 ![Alt text](h1 Hacker Warmup/h1.e1.png)
 
 ## f) Porttiskannaa kaikki koneesi (localhost) tcp-portit. Analysoi tulokset (Port scan all the TCP ports on your machine (localhost). Analyze the results.).
