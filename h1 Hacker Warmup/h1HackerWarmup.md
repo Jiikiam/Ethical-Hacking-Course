@@ -39,6 +39,12 @@ According to the research the intusion kill chain what and APTs use consist of s
 
 ## a) Ratkaise Over The Wire: Bandit kolme ensimmäistä tasoa (0-2) (Solve the first three levels (0-2) of Over The Wire: Bandit).
 
+I installed ssh. Enabled it and started the ssh service.
+
+	$ sudo apt-get install ssh
+	$ sudo systemctl enable ssh
+  $ sudo service ssh start 
+
 ## b) Ratkaise Challenge.fi:stä yksi tehtävä (Complete one task from Challenge.fi.), esim. Challenge.fi 2021 Where was this picture taken, Encoding basics. Tai joku Challenge.fi 2022.
 
 ## c) Ratkaise PortSwigger Labs: Lab: SQL injection vulnerability in WHERE clause allowing retrieval of hidden data. (Edellyttää ilmaista rekisteröitymistä. Tehtävän voi ratkaista pelkästään selaimen osoitekenttää muokkaamalla.)
