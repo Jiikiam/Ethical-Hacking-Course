@@ -73,7 +73,6 @@ I used nmap to scan the tcp ports. As found in the picture only one port is open
 
 	$ nmap localhost
  	$ nmap --top-ports 1000 localhost
-
 pic
 
 ## f) Porttiskannaa kaikki koneesi (localhost) tcp-portit. Analysoi tulokset (Port scan all the TCP ports on your machine (localhost). Analyze the results.).
@@ -81,7 +80,6 @@ pic
 I scanned tcp ports between 1-65535. Again only the ssh port 22 were open.
 
 	$ nmap -p 1-65535 localhost
-
 pic
 
 ## g) Tee laaja porttiskanaus (nmap -A) omalle koneellesi (localhost), kaikki portit. Selitä, mitä -A tekee. (Perform a comprehensive port scan (nmap -A) on your own machine (localhost), all ports. Explain what -A does.).
@@ -92,5 +90,8 @@ The result showed more information because of the -A. The -A: "Enable OS detecti
 pic
 
 ## h) Asenna ja käynnistä jokin palvelin (apache, ssh...) koneellesi. Vertaile, miten porttiskannauksen tulos eroaa.
+
+
+
 ## i) Kokeile ja esittele jokin avointen lähteiden tiedusteluun sopiva weppisivu tai työkalu. Hyviä esimerkkejä löytyy Bazzel: IntelTechniques: Tools ja Bellingcat: Resources, voit myös käyttää muuta itse valitsemaasi työkalua. Työkalua pitää siis myös kokeilla, pelkkä nimen mainitseminen ei riitä. Pidä esimerkit harmittomina, älä julkaise kenenkään henkilökohtaisia salaisuuksia raportissasi.
 ## j) Vapaaehtoinen: Tee lisää harjoituksia alustoilta, joihin tässä on tutustuttu: PortSwigger Academy, Over the Wire, Challenge.fi. Hakkeroimaan oppii hakkeroimalla.
