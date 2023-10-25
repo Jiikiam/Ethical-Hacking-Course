@@ -59,6 +59,7 @@ I solved all 4 "Where was this picture taken?"
 
 ![Alt text](h1 Hacker Warmup/h1.b1.png)
 
+
 ## c) Ratkaise PortSwigger Labs (Solve PortSwigger Labs): Lab: SQL injection vulnerability in WHERE clause allowing retrieval of hidden data.
 
 I tried to display the gategory from nothing to 1=1 so it would display all the rows in the category section in the database. 
@@ -104,7 +105,7 @@ I installed apache2 and started it. Now nmap command gives the following:
 Two weeks ago I used [urlvoid](https://www.urlvoid.com/) because I checked the web page's URL that scammers sent to me. The URL was Mobiili.pivo-fi.com, and if you know something about URLs, you right away notice that the URL isn't legit. Urlvoid tells how long the URL has been registered, the IP address, and some other information. I checked the URL again, and now every piece of information has changed besides the URL. The first picture is from two weeks ago, and the second one is from today.
 
 ![Alt text](h1 Hacker Warmup/h1.i1.png)
+
 ![Alt text](h1 Hacker Warmup/h1.i2.png)
-i2
 
 ## j) Vapaaehtoinen: Tee lisää harjoituksia alustoilta, joihin tässä on tutustuttu (Optional: Do more exercises on the platforms that have been introduced here:): PortSwigger Academy, Over the Wire, Challenge.fi.
