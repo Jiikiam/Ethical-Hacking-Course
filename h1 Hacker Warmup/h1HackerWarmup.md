@@ -87,11 +87,21 @@ pic
  	$ nmap -A -p 1-65535 localhost
 The result showed more information because of the -A. The -A: "Enable OS detection, version detection, script scanning, and traceroute" as seen in the picture. Apparently it also scanned my ssh-hostkeys which was a surprise for me.
 
-pic
+pic g1
 
-## h) Asenna ja käynnistä jokin palvelin (apache, ssh...) koneellesi. Vertaile, miten porttiskannauksen tulos eroaa.
+## h) Asenna ja käynnistä jokin palvelin koneellesi. Vertaile, miten porttiskannauksen tulos eroaa (Install and start a server on your computer. Compare how the port scan results differ.).
+
+I installed apache2 and started it. Now nmap command gives the following: 
+
+	$ nmap localhost
+pic h1
 
 
+## i) Kokeile ja esittele jokin avointen lähteiden tiedusteluun sopiva weppisivu tai työkalu (Try and introduce a web page or tool suitable for open-source intelligence gathering). 
 
-## i) Kokeile ja esittele jokin avointen lähteiden tiedusteluun sopiva weppisivu tai työkalu. Hyviä esimerkkejä löytyy Bazzel: IntelTechniques: Tools ja Bellingcat: Resources, voit myös käyttää muuta itse valitsemaasi työkalua. Työkalua pitää siis myös kokeilla, pelkkä nimen mainitseminen ei riitä. Pidä esimerkit harmittomina, älä julkaise kenenkään henkilökohtaisia salaisuuksia raportissasi.
-## j) Vapaaehtoinen: Tee lisää harjoituksia alustoilta, joihin tässä on tutustuttu: PortSwigger Academy, Over the Wire, Challenge.fi. Hakkeroimaan oppii hakkeroimalla.
+Two weeks ago I used [urlvoid](https://www.urlvoid.com/) because I checked the web page's URL that scammers sent to me. The URL was Mobiili.pivo-fi.com, and if you know something about URLs, you right away notice that the URL isn't legit. Urlvoid tells how long the URL has been registered, the IP address, and some other information. I checked the URL again, and now every piece of information has changed besides the URL. The first picture is from two weeks ago, and the second one is from today.
+
+i1
+i2
+
+## j) Vapaaehtoinen: Tee lisää harjoituksia alustoilta, joihin tässä on tutustuttu (Optional: Do more exercises on the platforms that have been introduced here:): PortSwigger Academy, Over the Wire, Challenge.fi.
