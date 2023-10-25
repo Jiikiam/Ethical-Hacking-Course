@@ -1,6 +1,6 @@
 # h1 Hacker Warmup
 
-Note: Assignment instructions have been given in Finnish, however, the I will answer in English. Below each question is direct translations from ChatGPT.
+Note: Assignment instructions have been given in Finnish, however, the I will answer in English. After each question is direct translations from ChatGPT.
 
 The System I am using is the latest Kali Linux [Kali.org website](https://www.kali.org/releases/).
 
