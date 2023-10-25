@@ -67,10 +67,18 @@ It worked with /filter?category=' or 1=1-- after the web page address.
 
 I have already installed kali linux 2023.3 with the help of this video [How To Install Kali Linux in VirtualBox (2023)](https://www.youtube.com/watch?v=l0JgWilK6ok&ab_channel=KskRoyal)
 
-## e) Porttiskannaa 1000 tavallisinta tcp-porttia omasta koneestasi (localhost). Analysoi tulokset.
+## e) Porttiskannaa 1000 tavallisinta tcp-porttia omasta koneestasi (localhost). Analysoi tulokset (Port scan the 1000 most common TCP ports from your own machine (localhost). Analyze the results).
 
+I used nmap to scan the tcp ports. As found in the picture only one port is open tcp port 22 (ssh service).
+
+	$ nmap --top-ports 1000 localhost
+
+pic
 
 ## f) Porttiskannaa kaikki koneesi (localhost) tcp-portit. Analysoi tulokset. (Edellisissä kohdissa mainittuja analyyseja ei tarvitse toistaa, voit vain viitata niihin ja keskittyä eroihin).
+
+
+
 ## g) Tee laaja porttiskanaus (nmap -A) omalle koneellesi (localhost), kaikki portit. Selitä, mitä -A tekee. Analysoi tulokset. (Edellisissä kohdissa mainittuja analyyseja ei tarvitse toistaa, voit vain viitata niihin ja keskittyä eroihin.).
 ## h) Asenna ja käynnistä jokin palvelin (apache, ssh...) koneellesi. Vertaile, miten porttiskannauksen tulos eroaa.
 ## i) Kokeile ja esittele jokin avointen lähteiden tiedusteluun sopiva weppisivu tai työkalu. Hyviä esimerkkejä löytyy Bazzel: IntelTechniques: Tools ja Bellingcat: Resources, voit myös käyttää muuta itse valitsemaasi työkalua. Työkalua pitää siis myös kokeilla, pelkkä nimen mainitseminen ei riitä. Pidä esimerkit harmittomina, älä julkaise kenenkään henkilökohtaisia salaisuuksia raportissasi.
