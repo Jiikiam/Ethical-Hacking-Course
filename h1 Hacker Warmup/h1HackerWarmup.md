@@ -80,6 +80,8 @@ pic
 
 I scanned tcp ports between 1-65535. Again only the ssh port 22 were open.
 
+	$ nmap -p 1-65535 localhost
+
 pic
 
 ## g) Tee laaja porttiskanaus (nmap -A) omalle koneellesi (localhost), kaikki portit. Selitä, mitä -A tekee. (Perform a comprehensive port scan (nmap -A) on your own machine (localhost), all ports. Explain what -A does.).
