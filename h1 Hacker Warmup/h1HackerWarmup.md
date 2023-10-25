@@ -37,13 +37,19 @@ According to the research the intusion kill chain what and APTs use consist of s
 7. Actions on Objectives
 
 
-## a) Ratkaise Over The Wire: Bandit kolme ensimmäistä tasoa (0-2) (Solve the first three levels (0-2) of Over The Wire: Bandit).
+## a) Ratkaise Over The Wire: Bandit kolme ensimmäistä tasoa (0-2) (Solve the first three levels (0-2) of Over The Wire: Bandit) [overthewire.org](https://overthewire.org/wargames/bandit/).
 
 I installed ssh. Enabled it and started the ssh service.
 
 	$ sudo apt-get install ssh
 	$ sudo systemctl enable ssh
 	$ sudo service ssh start 
+ Then I did the 0-2 levels. 
+ Level 0 command: ssh bandit0@bandit.labs.overthewire.org -p2220 and password: bandit0. 
+ Level 1 commands: ls, cat readme. The readme file contained the following string: NH2SXQwcBdpmTEzi3bvBHMM9H66vVXjL
+ Level 2 commands: ssh bandit1@bandit.labs.overthewire.org -p2220 and password bandit1. ls -la, cat < -.
+ 	pic
+  	pic
 
 ## b) Ratkaise Challenge.fi:stä yksi tehtävä (Complete one task from Challenge.fi.), esim. Challenge.fi 2021 Where was this picture taken, Encoding basics. Tai joku Challenge.fi 2022.
 
