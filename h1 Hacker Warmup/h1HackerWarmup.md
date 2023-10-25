@@ -3,6 +3,35 @@
 Note: Assignment instructions have been given in Finnish, however, the I will answer in English. Below each question is direct translations from ChatGPT.
 
 ## x) Lue/katso ja tiivistä (Read/watch and summarize). (Santos et al: The Art of Hacking (Video Collection): [..] 4.3 Surveying Essential Tools for Active Reconnaissance. Hutchins et al 2011: Intelligence-Driven Computer Network Defense Informed by Analysis of Adversary Campaigns and Intrusion Kill Chains, chapters Abstract, 3.2 Intrusion Kill Chain.)
+active reconnaissance differs from passive recon because now your actions can be seen and packets are sent to the target new work. (The illegal part starts)
+
+Active recon. Can be noticed unlike passive recon.
+- Port scanning some new info and maybe include some passive recon info
+- Vulnerability scans
+- Often can be noticable, but a lot of times no one doesnt look the logs
+
+Video states that active recon is very important part of the hacking process
+Methology
+Port Scanning
+  - confirm passive recon phase open ports and find more open ports (!!nmap!!)/ Masscan fastest port scanner. Not as versitile as nmap. Udpprotoscanner for udp ports.
+Web service review
+  - Which web apps to attack firts - prioritizing
+  - Eyewitness tool for large networks
+Vulnerability Scanning
+  - will be noticed if detection is present
+  - External portion vulnerabilities!	
+  Network vulnerability scanners mentioned: OpenVAS, NESSUS, Nexposure, Qualys, Nmap(limited) with scripts
+  Web vulnerability scanners mentioned: Nikto, WPScan, SQLMap, Burp Suite, Zed Attack Proxy
+
+According to the research the intusion kill chain what and APTs use consist of seven steps.
+1. Reconnaissance
+2. Weaponization
+3. Delivery
+4. Exploitation
+5. Installation
+6. Command and Control (C2)
+7. Actions on Objectives
+
 
 ## a) Ratkaise Over The Wire: Bandit kolme ensimmäistä tasoa (0-2) (Solve the first three levels (0-2) of Over The Wire: Bandit).
 
