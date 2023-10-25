@@ -2,6 +2,8 @@
 
 Note: Assignment instructions have been given in Finnish, however, the I will answer in English. Below each question is direct translations from ChatGPT.
 
+The System I am using is the latest Kali Linux [Kali.org website](https://www.kali.org/releases/).
+
 ## x) Lue/katso ja tiivistä (Read/watch and summarize). (Santos et al: The Art of Hacking (Video Collection): [..] 4.3 Surveying Essential Tools for Active Reconnaissance. Hutchins et al 2011: Intelligence-Driven Computer Network Defense Informed by Analysis of Adversary Campaigns and Intrusion Kill Chains, chapters Abstract, 3.2 Intrusion Kill Chain.)
 
 Active reconnaissance differs from passive recon because now your actions can be seen and packets are sent to the target new work. (The illegal part starts)
