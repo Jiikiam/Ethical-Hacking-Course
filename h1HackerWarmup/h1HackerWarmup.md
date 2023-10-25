@@ -51,7 +51,7 @@ Level 2 commands: ssh bandit1@bandit.labs.overthewire.org -p2220 and password ba
 
 ![Alt text](/h1HackerWarmup/h1.1.png)
 
-![Alt text](/h1 Hacker Warmup/h1.2.png)
+![Alt text](/h1HackerWarmup/h1.2.png)
 
 ## b) Ratkaise Challenge.fi:stä yksi tehtävä (Complete one task from Challenge.fi.) [Genz challenge 2021](https://2021.challenge.fi/challenges).
 
