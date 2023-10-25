@@ -49,16 +49,15 @@ Level 0 command: ssh bandit0@bandit.labs.overthewire.org -p2220 and password: ba
 Level 1 commands: ls, cat readme. The readme file contained the following string: NH2SXQwcBdpmTEzi3bvBHMM9H66vVXjL
 Level 2 commands: ssh bandit1@bandit.labs.overthewire.org -p2220 and password bandit1. ls -la, cat < -.
 
-![Alt text](h1 Hacker Warmup/h1.1.png)
+![Alt text](/h1 Hacker Warmup/h1.1.png)
 
-![Alt text](h1 Hacker Warmup/h1.2.png)
+![Alt text](/h1 Hacker Warmup/h1.2.png)
 
 ## b) Ratkaise Challenge.fi:stä yksi tehtävä (Complete one task from Challenge.fi.) [Genz challenge 2021](https://2021.challenge.fi/challenges).
 
 I solved all 4 "Where was this picture taken?" 
 
-![Alt text](h1 Hacker Warmup/h1.b1.png)
-
+![Alt text](/h1 Hacker Warmup/h1.b1.png)
 
 ## c) Ratkaise PortSwigger Labs (Solve PortSwigger Labs): Lab: SQL injection vulnerability in WHERE clause allowing retrieval of hidden data.
 
@@ -77,35 +76,35 @@ I used nmap to scan the tcp ports. As found in the picture only one port is open
 	$ nmap localhost
  	$ nmap --top-ports 1000 localhost
   
-![Alt text](h1 Hacker Warmup/h1.e1.png)
+![Alt text](/h1 Hacker Warmup/h1.e1.png)
 
 ## f) Porttiskannaa kaikki koneesi (localhost) tcp-portit. Analysoi tulokset (Port scan all the TCP ports on your machine (localhost). Analyze the results.).
 
 I scanned tcp ports between 1-65535. Again only the ssh port 22 was open.
 
 	$ nmap -p 1-65535 localhost
-![Alt text](h1 Hacker Warmup/h1.f1.png)
+![Alt text](/h1 Hacker Warmup/h1.f1.png)
 
 ## g) Tee laaja porttiskanaus (nmap -A) omalle koneellesi (localhost), kaikki portit. Selitä, mitä -A tekee. (Perform a comprehensive port scan (nmap -A) on your own machine (localhost), all ports. Explain what -A does.).
 
  	$ nmap -A -p 1-65535 localhost
 The result showed more information because of the -A. The -A: "Enable OS detection, version detection, script scanning, and traceroute" as seen in the picture. Apparently it also scanned my ssh-hostkeys which was a surprise for me.
 
-![Alt text](h1 Hacker Warmup/h1.g1.png)
+![Alt text](/h1 Hacker Warmup/h1.g1.png)
 
 ## h) Asenna ja käynnistä jokin palvelin koneellesi. Vertaile, miten porttiskannauksen tulos eroaa (Install and start a server on your computer. Compare how the port scan results differ.).
 
 I installed apache2 and started it. Now nmap command gives the following: 
 
 	$ nmap localhost
-![Alt text](h1 Hacker Warmup/h1.h1.png)
+![Alt text](/h1 Hacker Warmup/h1.h1.png)
 
 ## i) Kokeile ja esittele jokin avointen lähteiden tiedusteluun sopiva weppisivu tai työkalu (Try and introduce a web page or tool suitable for open-source intelligence gathering). 
 
 Two weeks ago I used [urlvoid](https://www.urlvoid.com/) because I checked the web page's URL that scammers sent to me. The URL was Mobiili.pivo-fi.com, and if you know something about URLs, you right away notice that the URL isn't legit. Urlvoid tells how long the URL has been registered, the IP address, and some other information. I checked the URL again, and now every piece of information has changed besides the URL. The first picture is from two weeks ago, and the second one is from today.
 
-![Alt text](h1 Hacker Warmup/h1.i1.png)
+![Alt text](/h1 Hacker Warmup/h1.i1.png)
 
-![Alt text](h1 Hacker Warmup/h1.i2.png)
+![Alt text](/h1 Hacker Warmup/h1.i2.png)
 
 ## j) Vapaaehtoinen: Tee lisää harjoituksia alustoilta, joihin tässä on tutustuttu (Optional: Do more exercises on the platforms that have been introduced here:): PortSwigger Academy, Over the Wire, Challenge.fi.
