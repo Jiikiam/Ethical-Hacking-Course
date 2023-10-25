@@ -69,17 +69,26 @@ I have already installed kali linux 2023.3 with the help of this video [How To I
 
 ## e) Porttiskannaa 1000 tavallisinta tcp-porttia omasta koneestasi (localhost). Analysoi tulokset (Port scan the 1000 most common TCP ports from your own machine (localhost). Analyze the results).
 
-I used nmap to scan the tcp ports. As found in the picture only one port is open tcp port 22 (ssh service).
+I used nmap to scan the tcp ports. As found in the picture only one port is open tcp port 22 (ssh service). The upper command scan 1000 most popular tcp ports. With nmap --top-ports you can specify the amount of top ports that you want to scan.
 
-	$ nmap --top-ports 1000 localhost
+	$ nmap localhost
+ 	$ nmap --top-ports 1000 localhost
 
 pic
 
-## f) Porttiskannaa kaikki koneesi (localhost) tcp-portit. Analysoi tulokset. (Edellisissä kohdissa mainittuja analyyseja ei tarvitse toistaa, voit vain viitata niihin ja keskittyä eroihin).
+## f) Porttiskannaa kaikki koneesi (localhost) tcp-portit. Analysoi tulokset (Port scan all the TCP ports on your machine (localhost). Analyze the results.).
 
+I scanned tcp ports between 1-65535. Again only the ssh port 22 were open.
 
+pic
 
-## g) Tee laaja porttiskanaus (nmap -A) omalle koneellesi (localhost), kaikki portit. Selitä, mitä -A tekee. Analysoi tulokset. (Edellisissä kohdissa mainittuja analyyseja ei tarvitse toistaa, voit vain viitata niihin ja keskittyä eroihin.).
+## g) Tee laaja porttiskanaus (nmap -A) omalle koneellesi (localhost), kaikki portit. Selitä, mitä -A tekee. (Perform a comprehensive port scan (nmap -A) on your own machine (localhost), all ports. Explain what -A does.).
+
+ 	$ nmap -A -p 1-65535 localhost
+The result showed more information because of the -A. The -A: "Enable OS detection, version detection, script scanning, and traceroute" as seen in the picture. Apparently it also scanned my ssh-hostkeys which was a surprise for me.
+
+pic
+
 ## h) Asenna ja käynnistä jokin palvelin (apache, ssh...) koneellesi. Vertaile, miten porttiskannauksen tulos eroaa.
 ## i) Kokeile ja esittele jokin avointen lähteiden tiedusteluun sopiva weppisivu tai työkalu. Hyviä esimerkkejä löytyy Bazzel: IntelTechniques: Tools ja Bellingcat: Resources, voit myös käyttää muuta itse valitsemaasi työkalua. Työkalua pitää siis myös kokeilla, pelkkä nimen mainitseminen ei riitä. Pidä esimerkit harmittomina, älä julkaise kenenkään henkilökohtaisia salaisuuksia raportissasi.
 ## j) Vapaaehtoinen: Tee lisää harjoituksia alustoilta, joihin tässä on tutustuttu: PortSwigger Academy, Over the Wire, Challenge.fi. Hakkeroimaan oppii hakkeroimalla.
