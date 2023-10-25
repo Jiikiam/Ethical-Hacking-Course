@@ -57,7 +57,7 @@ I solved all 4 "Where was this picture taken?"
 
 pic 
 
-## c) Ratkaise PortSwigger Labs: Lab: SQL injection vulnerability in WHERE clause allowing retrieval of hidden data.
+## c) Ratkaise PortSwigger Labs (Solve PortSwigger Labs): Lab: SQL injection vulnerability in WHERE clause allowing retrieval of hidden data.
 
 I tried to display the gategory from nothing to 1=1 so it would display all the rows in the category section in the database. 
 
@@ -65,7 +65,11 @@ It worked with /filter?category=' or 1=1-- after the web page address.
 
 ## d) Asenna Linux virtuaalikoneeseen (Install Linux on a virtual machine).
 
+I have already installed kali linux 2023.3 with the help of this video [How To Install Kali Linux in VirtualBox (2023)](https://www.youtube.com/watch?v=l0JgWilK6ok&ab_channel=KskRoyal)
+
 ## e) Porttiskannaa 1000 tavallisinta tcp-porttia omasta koneestasi (localhost). Analysoi tulokset.
+
+
 ## f) Porttiskannaa kaikki koneesi (localhost) tcp-portit. Analysoi tulokset. (Edellisissä kohdissa mainittuja analyyseja ei tarvitse toistaa, voit vain viitata niihin ja keskittyä eroihin).
 ## g) Tee laaja porttiskanaus (nmap -A) omalle koneellesi (localhost), kaikki portit. Selitä, mitä -A tekee. Analysoi tulokset. (Edellisissä kohdissa mainittuja analyyseja ei tarvitse toistaa, voit vain viitata niihin ja keskittyä eroihin.).
 ## h) Asenna ja käynnistä jokin palvelin (apache, ssh...) koneellesi. Vertaile, miten porttiskannauksen tulos eroaa.
