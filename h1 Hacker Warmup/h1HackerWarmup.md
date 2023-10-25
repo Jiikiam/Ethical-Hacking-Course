@@ -43,7 +43,7 @@ I installed ssh. Enabled it and started the ssh service.
 
 	$ sudo apt-get install ssh
 	$ sudo systemctl enable ssh
-  $ sudo service ssh start 
+	$ sudo service ssh start 
 
 ## b) Ratkaise Challenge.fi:stä yksi tehtävä (Complete one task from Challenge.fi.), esim. Challenge.fi 2021 Where was this picture taken, Encoding basics. Tai joku Challenge.fi 2022.
 
