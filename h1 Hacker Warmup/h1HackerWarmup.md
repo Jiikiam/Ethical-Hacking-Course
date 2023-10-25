@@ -77,7 +77,7 @@ pic
 
 ## f) Porttiskannaa kaikki koneesi (localhost) tcp-portit. Analysoi tulokset (Port scan all the TCP ports on your machine (localhost). Analyze the results.).
 
-I scanned tcp ports between 1-65535. Again only the ssh port 22 were open.
+I scanned tcp ports between 1-65535. Again only the ssh port 22 was open.
 
 	$ nmap -p 1-65535 localhost
 pic
