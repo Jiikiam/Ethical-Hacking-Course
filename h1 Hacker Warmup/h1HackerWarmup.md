@@ -51,9 +51,16 @@ I installed ssh. Enabled it and started the ssh service.
  	pic
   	pic
 
-## b) Ratkaise Challenge.fi:stä yksi tehtävä (Complete one task from Challenge.fi.), esim. Challenge.fi 2021 Where was this picture taken, Encoding basics. Tai joku Challenge.fi 2022.
+## b) Ratkaise Challenge.fi:stä yksi tehtävä (Complete one task from Challenge.fi.) [Genz challenge 2021](https://2021.challenge.fi/challenges).
+
+I solved all 4 "Where was this picture taken?" 
+
+pic 
 
 ## c) Ratkaise PortSwigger Labs: Lab: SQL injection vulnerability in WHERE clause allowing retrieval of hidden data. (Edellyttää ilmaista rekisteröitymistä. Tehtävän voi ratkaista pelkästään selaimen osoitekenttää muokkaamalla.)
+
+
+
 ## d) Asenna Linux virtuaalikoneeseen. Suosittelen joko Kali (viimeisin versio) tai Debian 12-Bookworm.
 ## e) Porttiskannaa 1000 tavallisinta tcp-porttia omasta koneestasi (localhost). Analysoi tulokset.
 ## f) Porttiskannaa kaikki koneesi (localhost) tcp-portit. Analysoi tulokset. (Edellisissä kohdissa mainittuja analyyseja ei tarvitse toistaa, voit vain viitata niihin ja keskittyä eroihin).
