@@ -46,8 +46,10 @@ I installed ssh. Enabled it and started the ssh service.
 	$ sudo service ssh start 
 Then I did the 0-2 levels. 
 Level 0 command: ssh bandit0@bandit.labs.overthewire.org -p2220 and password: bandit0. 
+
 Level 1 commands: ls, cat readme. The readme file contained the following string: NH2SXQwcBdpmTEzi3bvBHMM9H66vVXjL
-Level 2 commands: ssh bandit1@bandit.labs.overthewire.org -p2220 and password bandit1. ls -la, cat < -.
+
+Level 2 commands: ssh bandit1@bandit.labs.overthewire.org -p2220 and password: NH2SXQwcBdpmTEzi3bvBHMM9H66vVXjL. ls -la, cat < - revealed the next password: rRGizSaX8Mk1RTb1CNQoXTcYZWU6lgzi.
 
 ![Alt text](/h1HackerWarmup/h1.1.png)
 
