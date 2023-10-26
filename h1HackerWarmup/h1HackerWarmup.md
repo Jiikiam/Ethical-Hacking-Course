@@ -1,4 +1,4 @@
-# h1 Hacker Warmup
+# h1 Hacker Warmup [Tero Karvinen Ethical Hacking 2023](https://terokarvinen.com/2023/eettinen-hakkerointi-2023/)
 
 Note: Assignment instructions have been given in Finnish, however, the I will answer in English. After each question is direct translations from ChatGPT.
 
@@ -108,4 +108,3 @@ Two weeks ago I used [urlvoid](https://www.urlvoid.com/) because I checked the w
 ![Alt text](/h1HackerWarmup/h1.i2.png)
 
 ## j) Vapaaehtoinen: Tee lisää harjoituksia alustoilta, joihin tässä on tutustuttu (Optional: Do more exercises on the platforms that have been introduced here:): PortSwigger Academy, Over the Wire, Challenge.fi.
-
