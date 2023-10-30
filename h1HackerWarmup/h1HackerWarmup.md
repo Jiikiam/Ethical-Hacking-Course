@@ -69,7 +69,7 @@ It worked with /filter?category=' or 1=1-- after the web page address.
 
 ## d) Asenna Linux virtuaalikoneeseen (Install Linux on a virtual machine).
 
-I have already installed kali linux 2023.3 with the help of this video [How To Install Kali Linux in VirtualBox (2023)](https://www.youtube.com/watch?v=l0JgWilK6ok&ab_channel=KskRoyal)
+Because I have already installed kali linux 2023.3  [Here is a video](https://www.youtube.com/watch?v=l0JgWilK6ok&ab_channel=KskRoyal)witch helped me to install kali linux
 
 ## e) Porttiskannaa 1000 tavallisinta tcp-porttia omasta koneestasi (localhost). Analysoi tulokset (Port scan the 1000 most common TCP ports from your own machine (localhost). Analyze the results).
 
