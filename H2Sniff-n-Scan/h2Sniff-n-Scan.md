@@ -41,4 +41,5 @@ Porttiskannaa paikallinen kone (127.0.0.2 tms), sieppaa liikenne snifferillä, a
 
 ## Sources
 [Tero Karvinen/eettinen-hakkerointi-2023](https://terokarvinen.com/2023/eettinen-hakkerointi-2023/)
+
 [Tero Karvinen/fuzz-urls-hidden directories](https://terokarvinen.com/2023/fuzz-urls-find-hidden-directories/?fromSearch=ffuf#your-turn---challenge)
