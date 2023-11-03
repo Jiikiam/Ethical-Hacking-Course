@@ -5,19 +5,36 @@ FUZZ:
 Käytetään automatisoimaan pyyntöjen lähettämistä kohteelle (verkkosivusto, rajapinnat jne.) ja samalla yritetään löytää virheitä, jotta kohde paljastaa joitakin tietoja, joita sen ei pitäisi paljastaa.
 Yleisiä kohteita: GET-parametrit: nimi, arvot... Headers: host, authentication, cookies, proxy headers. Post-data: lomaketiedot, JSON-tiedostot.
 
-Filters (-f/c,l,r,s,t,w,tila) ja matchers (-m/c,k,tila,r,s,t).
+Filters (-f/c,l,r,s,t,w,tila) ja matchers (-m/c,k,mode,r,s,t).
 
 Mielenkiintoisia ffuf-esimerkkejä videossa. Pass bruteforcing. Virtualhost discovery. Parameter discovery. Template injections. Usein käytettyjä komentoja ovat esimerkiksi: -od output found context to txt file, -u target url, -w wordlist, -v verbose output, -json json output.
 
 Sanalistoja: seclists, fuzz.dp, all.txt, jhaddixin sanalista. Tarvittaesa luo kohdennettuja sanalistoja: kohde-, sovellus-, konteksti-, ohjelmointikieli-, kielikohtaisia.
 
-## a) Fuff. Ratkaise Teron ffuf-haastebinääri. Artikkelista Find Hidden Web Directories - Fuzz URLs with ffuf voi olla apua.
-Ensiksi siirryin kansioon /Downloads, Latasin kansioon harjoitusmaalitidoston dirfutz-1 ja muuten sen oikeudet niin, että sen tiedoston voi ajaa, jonka jälkeen ajoin tiedoston dirfutz-1
+## a) Fuff. Ratkaise Teron ffuf-haastebinääri.
+Ensiksi siirryin kansioon /Downloads, Latasin kansioon harjoitusmaalitidoston dirfutz-1 ja muuten sen oikeudet niin, että sen tiedoston voi ajaa, jonka jälkeen ajoin tiedoston dirfutz-1, että sain harjoitusmaalin auki. Lisäksi latasin samaan kansioon common.txt, joka sisältää sanalistan yleisimmin käytetyistä verkkojen aliosoitteiden nimistä.
 
-    # wget https://terokarvinen.com/2023/fuzz-urls-find-hidden-directories/dirfuzt-1
-    # chmod +x dirfuzt-1
-    
+    $ wget https://terokarvinen.com/2023/fuzz-urls-find-hidden-directories/dirfuzt-1
+    $ chmod +x dirfuzt-1
+    $ ./dirfizt-1
+    $  wget https://raw.githubusercontent.com/danielmiessler/SecLists/master/Discovery/Web-Content/common.txt
+![Alt text](/H2Sniff-n-Scan/h1.a1.png)
+Avasin selaimen localhost osoitteen 127.0.0.2:8000, jotta sain varmistuksen, että harjoitusmaalin on pystyssä.
+![Alt text](/H2Sniff-n-Scan/h1.a2.png)
+Sitten fuzzaamaan. Ensiksi testasin komentoa (-v=verbose output, -c=colorize output, -w=wordlist, -u:target url):
 
+    $ ffuf -v -c -w common.txt -u http://127.0.0.2:8000/FUZZ 
+![Alt text](/H2Sniff-n-Scan/h1.a3.png)
+Komento antoi todella paljon vastauksia, joten haluamme suodattaa ei toivottut vastauksen pois. Se onnistuu jo mainitsemieni suodattimien avulla (-f/c,l,r,s,t,w,mode). Katsomalla tulostusten listaa on vastauksilla paljon yhteistä. Tässä tapauksessa voimme suodattaa vastaukset vaikka koon mukaan lisäämällä -fs 154(filter size) komennon perään.
+
+    $ ffuf -v -c -w common.txt -u http://127.0.0.2:8000/FUZZ -fs 154
+Tämän jälkeen vastaukseksi tuli 7 aliverkko osoitetta.
+
+![Alt text](/H2Sniff-n-Scan/h1.a4.png)
+Kun testasin antamia aliverkkojen osoitteita, kaikki näyttivät melkein samalta pois lukien osoitte http://127.0.0.2:8000/render/https://www.google.com. 
+![Alt text](/H2Sniff-n-Scan/h1.a5.png)
+![Alt text](/H2Sniff-n-Scan/h1.a6.png)
+Jokaisen sivun paitsi /render... sivun sanoman "You found it!" mukaan oletan, että pääsin tehtävän läpi.
 
 ## b) Fuffme. Asenna Ffufme harjoitusmaali paikallisesti omalle koneellesi. Ratkaise tehtävät (kaikki paitsi ei "Content Discovery - Pipes")
 Basic Content Discovery
@@ -43,3 +60,5 @@ Porttiskannaa paikallinen kone (127.0.0.2 tms), sieppaa liikenne snifferillä, a
 [Tero Karvinen/eettinen-hakkerointi-2023](https://terokarvinen.com/2023/eettinen-hakkerointi-2023/)
 
 [Tero Karvinen/fuzz-urls-hidden directories](https://terokarvinen.com/2023/fuzz-urls-find-hidden-directories/?fromSearch=ffuf#your-turn---challenge)
+
+[Ffuf github](https://github.com/ffuf/ffuf)
