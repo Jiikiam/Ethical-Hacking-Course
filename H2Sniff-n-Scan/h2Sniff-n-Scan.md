@@ -18,22 +18,32 @@ Ensiksi siirryin kansioon /Downloads, Latasin kansioon harjoitusmaalitidoston di
     $ chmod +x dirfuzt-1
     $ ./dirfizt-1
     $  wget https://raw.githubusercontent.com/danielmiessler/SecLists/master/Discovery/Web-Content/common.txt
+    
 ![Alt text](/H2Sniff-n-Scan/h1.a1.png)
+
 Avasin selaimen localhost osoitteen 127.0.0.2:8000, jotta sain varmistuksen, että harjoitusmaalin on pystyssä.
+
 ![Alt text](/H2Sniff-n-Scan/h1.a2.png)
+
 Sitten fuzzaamaan. Ensiksi testasin komentoa (-v=verbose output, -c=colorize output, -w=wordlist, -u:target url):
 
     $ ffuf -v -c -w common.txt -u http://127.0.0.2:8000/FUZZ 
+    
 ![Alt text](/H2Sniff-n-Scan/h1.a3.png)
+
 Komento antoi todella paljon vastauksia, joten haluamme suodattaa ei toivottut vastauksen pois. Se onnistuu jo mainitsemieni suodattimien avulla (-f/c,l,r,s,t,w,mode). Katsomalla tulostusten listaa on vastauksilla paljon yhteistä. Tässä tapauksessa voimme suodattaa vastaukset vaikka koon mukaan lisäämällä -fs 154(filter size) komennon perään.
 
     $ ffuf -v -c -w common.txt -u http://127.0.0.2:8000/FUZZ -fs 154
 Tämän jälkeen vastaukseksi tuli 7 aliverkko osoitetta.
 
 ![Alt text](/H2Sniff-n-Scan/h1.a4.png)
+
 Kun testasin antamia aliverkkojen osoitteita, kaikki näyttivät melkein samalta pois lukien osoitte http://127.0.0.2:8000/render/https://www.google.com. 
+
 ![Alt text](/H2Sniff-n-Scan/h1.a5.png)
+
 ![Alt text](/H2Sniff-n-Scan/h1.a6.png)
+
 Jokaisen sivun paitsi /render... sivun sanoman "You found it!" mukaan oletan, että pääsin tehtävän läpi.
 
 ## b) Fuffme. Asenna Ffufme harjoitusmaali paikallisesti omalle koneellesi. Ratkaise tehtävät (kaikki paitsi ei "Content Discovery - Pipes")
