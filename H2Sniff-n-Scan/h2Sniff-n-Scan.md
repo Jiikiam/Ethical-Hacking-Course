@@ -5,6 +5,14 @@ Lyon 2009: Nmap Network Scanning: Chapter 15. Nmap Reference Guide:
 Port Scanning Basics (opettele, mitä tarkoittavat: open, closed, filtered; muuten vain silmäily)
 Port Scanning Techniques (opettele, mitä ovat: -sS -sT -sU; muuten vain silmäily)
 
+FUZZ:
+Is used to automate sending requests to target (website, APIs, etc) while trying to find bugs. So that the target gives some information it shouldn't give. 
+Common targets: get parameters: name, values... Headers: host, authentication, cookies, proxy headers. Post date: form data, JSON files.
+
+filters and matchers
+Interesting ffuf examples in the video. Pass bruteforcing. virtualhost discovery. parameter discovery, -od output found context to txt file. Template injections. 
+
+seclists, fuzz.dp, all.txt jhaddix wordlist. Generate own playlists: target-, app-, context-, prog.language-, language-specific.
 
 ## a) Fuff. Ratkaise Teron ffuf-haastebinääri. Artikkelista Find Hidden Web Directories - Fuzz URLs with ffuf voi olla apua.
 ## b) Fuffme. Asenna Ffufme harjoitusmaali paikallisesti omalle koneellesi. Ratkaise tehtävät (kaikki paitsi ei "Content Discovery - Pipes")
