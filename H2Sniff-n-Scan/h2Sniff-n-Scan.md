@@ -6,13 +6,13 @@ Port Scanning Basics (opettele, mitä tarkoittavat: open, closed, filtered; muut
 Port Scanning Techniques (opettele, mitä ovat: -sS -sT -sU; muuten vain silmäily)
 
 FUZZ:
-Is used to automate sending requests to target (website, APIs, etc) while trying to find bugs. So that the target gives some information it shouldn't give. 
+Is used to automate sending requests to target (website, APIs, etc) while trying to find bugs so that the target gives some information it shouldn't give. 
 Common targets: get parameters: name, values... Headers: host, authentication, cookies, proxy headers. Post date: form data, JSON files.
 
-filters and matchers
-Interesting ffuf examples in the video. Pass bruteforcing. virtualhost discovery. parameter discovery, -od output found context to txt file. Template injections. 
+filters (-f/c,l,r,s,t,w,mode) and matchers(-m/c,k,mode,r,s,t)
+Interesting ffuf examples in the video. Pass bruteforcing. Virtualhost discovery. Parameter discovery. Template injections. -od output found context to txt file, -u target url, -w wordlist, -v verbose output, -json json output)
 
-seclists, fuzz.dp, all.txt jhaddix wordlist. Generate own playlists: target-, app-, context-, prog.language-, language-specific.
+Wordlists: seclists, fuzz.dp, all.txt jhaddix wordlist. Generate own playlists: target-, app-, context-, prog.language-, language-specific.
 
 ## a) Fuff. Ratkaise Teron ffuf-haastebinääri. Artikkelista Find Hidden Web Directories - Fuzz URLs with ffuf voi olla apua.
 ## b) Fuffme. Asenna Ffufme harjoitusmaali paikallisesti omalle koneellesi. Ratkaise tehtävät (kaikki paitsi ei "Content Discovery - Pipes")
