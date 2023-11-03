@@ -6,13 +6,14 @@ Port Scanning Basics (opettele, mitä tarkoittavat: open, closed, filtered; muut
 Port Scanning Techniques (opettele, mitä ovat: -sS -sT -sU; muuten vain silmäily)
 
 FUZZ:
-Is used to automate sending requests to target (website, APIs, etc) while trying to find bugs so that the target gives some information it shouldn't give. 
-Common targets: get parameters: name, values... Headers: host, authentication, cookies, proxy headers. Post date: form data, JSON files.
+Käytetään automatisoimaan pyyntöjen lähettämistä kohteelle (verkkosivusto, rajapinnat jne.) ja samalla yritetään löytää virheitä, jotta kohde paljastaa joitakin tietoja, joita sen ei pitäisi paljastaa.
+Yleisiä kohteita: GET-parametrit: nimi, arvot... Headers: host, authentication, cookies, proxy headers. Post-data: lomaketiedot, JSON-tiedostot.
 
-filters (-f/c,l,r,s,t,w,mode) and matchers(-m/c,k,mode,r,s,t)
-Interesting ffuf examples in the video. Pass bruteforcing. Virtualhost discovery. Parameter discovery. Template injections. -od output found context to txt file, -u target url, -w wordlist, -v verbose output, -json json output)
+Filters (-f/c,l,r,s,t,w,tila) ja matchers (-m/c,k,tila,r,s,t).
 
-Wordlists: seclists, fuzz.dp, all.txt jhaddix wordlist. Generate own playlists: target-, app-, context-, prog.language-, language-specific.
+Mielenkiintoisia ffuf-esimerkkejä videossa. Pass bruteforcing. Virtualhost discovery. Parameter discovery. Template injections. Usein käytettyjä komentoja ovat esimerkiksi: -od output found context to txt file, -u target url, -w wordlist, -v verbose output, -json json output.
+
+Sanalistoja: seclists, fuzz.dp, all.txt, jhaddixin sanalista. Tarvittaesa luo kohdennettuja sanalistoja: kohde-, sovellus-, konteksti-, ohjelmointikieli-, kielikohtaisia.
 
 ## a) Fuff. Ratkaise Teron ffuf-haastebinääri. Artikkelista Find Hidden Web Directories - Fuzz URLs with ffuf voi olla apua.
 ## b) Fuffme. Asenna Ffufme harjoitusmaali paikallisesti omalle koneellesi. Ratkaise tehtävät (kaikki paitsi ei "Content Discovery - Pipes")
