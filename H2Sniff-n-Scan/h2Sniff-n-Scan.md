@@ -1,6 +1,6 @@
 # h2 Sniff-n-Scan
 Tehtävät on tehty käyttäen kali linuxa 2023.3. Ffuf versio 2.1.0. Nmap versio 7.94.
-## x) Lue/katso ja tiivistä. Hoikkala "joohoi" 2020: Still Fuzzing Faster (U fool). In HelSec Virtual meetup #1. (about 1 hour) Lyon 2009: Nmap Network Scanning: Chapter 15. Nmap Reference Guide: Port Scanning Basics. Port Scanning Techniques.
+## x) Tiivistä Hoikkala "joohoi" 2020: Still Fuzzing Faster (U fool). In HelSec Virtual meetup #1. (about 1 hour) Lyon 2009: Nmap Network Scanning: Chapter 15. Nmap Reference Guide: Port Scanning Basics. Port Scanning Techniques.
 
 FUZZ:
 Käytetään automatisoimaan pyyntöjen lähettämistä kohteelle (verkkosivusto, rajapinnat jne.) ja samalla yritetään löytää virheitä, jotta kohde paljastaa joitakin tietoja, joita sen ei pitäisi paljastaa.
@@ -12,7 +12,7 @@ Mielenkiintoisia ffuf-esimerkkejä videossa. Pass bruteforcing. Virtualhost disc
 
 Sanalistoja: seclists, fuzz.dp, all.txt, jhaddixin sanalista. Tarvittaesa luo kohdennettuja sanalistoja: kohde-, sovellus-, konteksti-, ohjelmointikieli-, kielikohtaisia.
 
-## a) Fuff. Ratkaise Teron ffuf-haastebinääri.
+## a) Fuff
 Ensiksi siirryin kansioon /Downloads, Latasin kansioon harjoitusmaalitidoston dirfutz-1 ja muuten sen oikeudet niin, että sen tiedoston voi ajaa, jonka jälkeen ajoin tiedoston dirfutz-1, että sain harjoitusmaalin auki. Lisäksi latasin samaan kansioon common.txt, joka sisältää sanalistan yleisimmin käytetyistä verkkojen aliosoitteiden nimistä.
 
     $ wget https://terokarvinen.com/2023/fuzz-urls-find-hidden-directories/dirfuzt-1
@@ -125,45 +125,68 @@ Porttiskannaan paikallista konetta 127.0.0.2 kaikissa kohdissa missä käytän n
 
 Nmap skannaa perus asetuksella portit väliltä 1-1000. -sT =(TCP connect scan) muodostaa yhteyden löytyneisiin portteihin.
 
-    $ nmap -sT 127.0.0.2
+    $ nmap -sT 127.0.0.1
 ![Alt text](/H2Sniff-n-Scan/h2.c1.png) 
-Minulta löytyi omalta koneelta vain yksi auki oleva TCP-portti 22/ssh, johon nmap sai muodostettua yhteyden.
+![Alt text](/H2Sniff-n-Scan/h2.c7.png) 
+Minulta löytyi omalta koneelta vain yksi auki oleva TCP-portti 22/ssh, johon nmap sai muodostettua yhteyden. Koska tarkastelin liikennettä localhostilla 127.0.0.1 on wiresharkissa source ja destination osoitteet samat. Nmap lähetti noin 1000 SYN sanomaa yhteensä ja vastaanotti saman verran [RTS, ACK] sanomia, koska ilman erillistä määrittelyä nmap skannaa 1000 porttia. Normaalisti vastaus olisi [SYN, ACK] sanoma, mutta koska tein tehtävän localhostissa oli vastauksena [RST, ACK] sanoma.
 
 ## d) nmap TCP SYN "used to be stealth" scan, -sS.
 -sS on nmapissa yleisesti parempi kuin -sT skanni. -sT skanni vie vähemmän aikaa ja vaatii vähemmän paketteja saman tiedon saamiseksi.
 
-    $ sudo nmap -sS 127.0.0.2
+    $ sudo nmap -sS 127.0.0.1
 ![Alt text](/H2Sniff-n-Scan/h2.c2.png) 
+![Alt text](/H2Sniff-n-Scan/h2.d1.png) 
+Vastaukset näyttävät samanlaisilta kuin aiemmassa kohdassa. Paketteja on taas n. 2000, koska skannattavia portteja on 1000.
 ## e) nmap ping sweep -sn
 
-    $ sudo nmap -sN 127.0.0.2
-![Alt text](/H2Sniff-n-Scan/h2.c3.png) 
+    $ sudo nmap -sN 127.0.0.1
+![Alt text](/H2Sniff-n-Scan/h2.c3.png)
+![Alt text](/H2Sniff-n-Scan/h2.e1.png)
 
-Komento antaa lisää tietoa portin tilasta. open|filtered. Nmap asettaa portit tähän tilaan, kun se ei pysty määrittämään, onko portti avoin vai suodatettu. Tämä tapahtuu sellaisissa skannaustyypeissä, joissa avoimet portit eivät anna mitään vastausta. Vastauksen puuttuminen voi myös tarkoittaa sitä, että pakettisuodatin hylkäsi kyselyn tai minkä tahansa vastauksen, jonka se aiheutti. 
+Komento antaa lisää tietoa portin tilasta. open|filtered. Nmap asettaa portit tähän tilaan, kun se ei pysty määrittämään, onko portti avoin vai suodatettu. Tämä tapahtuu sellaisissa skannaustyypeissä, joissa avoimet portit eivät anna mitään vastausta. Vastauksen puuttuminen voi myös tarkoittaa sitä, että pakettisuodatin hylkäsi kyselyn tai minkä tahansa vastauksen, jonka se aiheutti. Asetuksen -sN takia vastauspakettien kentissä ei ole asetettu mitään tiettyä lippua, siksi nmapin lähettämissä paketeissa lukee [<NONE>] eikä [SYN] verrattuna aikaisempiin nmap hakuihin.
 ## f) nmap don't ping -Pn
 -Pn estää ping-tarkistuksen, joten Nmap yrittää skannata kohdeosoitteen välittämättä siitä, vastaako se ping-pyyntöihin vai ei.
 
-    $ sudo nmap -Pn 127.0.0.2
+    $ sudo nmap -Pn 127.0.0.1
 ![Alt text](/H2Sniff-n-Scan/h2.c4.png) 
+![Alt text](/H2Sniff-n-Scan/h2.f1.png) 
+
+Päällisin puolin wiresharkin liikenne näyttää samalta kuin tapauksissa c ja d.
 ## g) nmap version detection -sV (esimerkki yhdestä palvelusta yhdessä portissa riittää)
 -sV yrittää selvittää, minkä version ohjelmaa palvelin käyttää vertaamalla vastauksia tiettyihin pyyntöjen parametreihin.
 
-    $ sudo nmap -sV 127.0.0.2
+    $ sudo nmap -sV 127.0.0.1
 ![Alt text](/H2Sniff-n-Scan/h2.c5.png) 
+![Alt text](/H2Sniff-n-Scan/h2.g1.png) 
+
+Wiresharkissa nähdään kuinka lopussa SSH lähettää tiedot nmapille ja nmap tulostaa arvioidun version.
 ## h) nmap output files -oA foo. Miltä tiedostot näyttävät? Mihin kukin tiedostotyyppi sopii?
 -oA foo tallentaa tulokset kolmeen eri tiedostoon: foo.nmap, foo.gnmap ja foo.xml.
 
-    $ sudo nmap -oA 127.0.0.2
+    $ sudo nmap -oA foo 127.0.0.1
 ![Alt text](/H2Sniff-n-Scan/h2.c6.png)
-foo.nmap ja foo.gnamp käy ihan manuaaliseen tarkasteluun. .nmap on perus teksti tiedosto. .gnamp tiedoston grepable-muoto on tarkoitettu helpottamaan tiedon käsittelyä skripteillä tai komentorivityökaluilla. Foo.xml on strukturoitu data tiedosto, joka soveltuu tietokantaintegraatioihin ja ohjelmalliseen käsittelyyn.
-## i) nmap ajonaikaiset toiminnot (man nmap: runtime interaction): verbosity v/V, help ?, packet tracing p/P, status s (ja moni muu nappi)
+![Alt text](/H2Sniff-n-Scan/h2.h1.png)
+foo.nmap ja foo.gnamp käy ihan manuaaliseen tarkasteluun. .nmap on perus teksti tiedosto. .gnamp tiedoston grepable-muoto on tarkoitettu helpottamaan tiedon käsittelyä skripteillä tai komentorivityökaluilla. Foo.xml on strukturoitu data tiedosto, joka soveltuu tietokantaintegraatioihin ja ohjelmalliseen käsittelyyn. 
 
+Wiresharkin liikenne näyttää jälleen päällisinpuolin "normaalilta".
+## i) nmap ajonaikaiset toiminnot (man nmap: runtime interaction)
+-T 0-5 pystyy hidastamaan yksinkertaisesti nmappia ja sen on pakko tehdä tässä, koska skannaan localhostia, jonka takia skannaus on todella nopea. Nmapin suoritus aikaa pystyy hallitsemaan myös laajemmin eri nmapin ominaisuuksilla esimerkiksi --min-rate tai --max-rate asetuksilla.
+
+     $ sudo nmap -T 1 -sS 127.0.0.1
+
+![Alt text](/H2Sniff-n-Scan/h2.i1.png)
+![Alt text](/H2Sniff-n-Scan/h2.i2.png)
+
+Kuten kuvasta näkyy tarpeeksi nmapin pyyntöjä hidastamalla liikennettä pystyy kontrolloida. Kun painoin suorituksen aikana ? näkyy saatavilla olevat kontrollit suorituksen aikana: ?, v/V, d/D, p/P, anything else Print status.
 ## j) Ninjojen tapaan. Piiloutuuko nmap-skannaus hyvin palvelimelta? Vinkkejä: Asenna Apache. Aja nmap-versioskannaus -sV tai -A omaan paikalliseen weppipalvelimeen. Etsi Apachen lokista tätä koskevat rivit. Wiresharkissa "http" on kätevä filtteri, se tulee siihen yläreunan "Apply a display filter..." -kenttään. Nmap-ajon aikana p laittaa packet tracing päälle. Vapaaehtoinen lisäkohta: jääkö Apachen lokiin jokin todiste nmap-versioskannauksesta?
+
 ## k) UDP-skannaus. UDP-skannaa paikkalinen kone (-sU). "Mulla olis vitsi UDP:sta, mutta en tiedä menisikö se perille":
 ## l) Miksi UDP-skannaus on hankalaa ja epäluotettavaa? Miksi UDP-skannauksen kanssa kannattaa käyttää --reason flagia ja snifferiä? (tässä alakohdassa vain vastaus viitteineen, ei tarvita testiä tietokoneella)
 
 ## Sources
 [Tero Karvinen/eettinen-hakkerointi-2023](https://terokarvinen.com/2023/eettinen-hakkerointi-2023/)
+
+[joohoi ffuf esitys](https://www.youtube.com/watch?v=mbmsT3AhwWU)
 
 [Tero Karvinen/fuzz-urls-hidden directories](https://terokarvinen.com/2023/fuzz-urls-find-hidden-directories/?fromSearch=ffuf#your-turn---challenge)
 
