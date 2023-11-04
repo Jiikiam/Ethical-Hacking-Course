@@ -1,4 +1,5 @@
 # h2 Sniff-n-Scan
+Tehtävät on tehty käyttäen kali linuxa 2023.3. Ffuf versio 2.1.0. Nmap versio 7.94.
 ## x) Lue/katso ja tiivistä. Hoikkala "joohoi" 2020: Still Fuzzing Faster (U fool). In HelSec Virtual meetup #1. (about 1 hour) Lyon 2009: Nmap Network Scanning: Chapter 15. Nmap Reference Guide: Port Scanning Basics. Port Scanning Techniques.
 
 FUZZ:
@@ -47,6 +48,7 @@ Kun testasin antamia aliverkkojen osoitteita, kaikki näyttivät melkein samalta
 Jokaisen sivun paitsi /render... sivun sanoman "You found it!" mukaan oletan, että pääsin tehtävän läpi.
 
 ## b) Fuffme. Asenna Ffufme harjoitusmaali paikallisesti omalle koneellesi. Ratkaise tehtävät (kaikki paitsi ei "Content Discovery - Pipes")
+
 Basic Content Discovery
 Content Discovery With Recursion
 Content Discovery With File Extensions
@@ -72,3 +74,5 @@ Porttiskannaa paikallinen kone (127.0.0.2 tms), sieppaa liikenne snifferillä, a
 [Tero Karvinen/fuzz-urls-hidden directories](https://terokarvinen.com/2023/fuzz-urls-find-hidden-directories/?fromSearch=ffuf#your-turn---challenge)
 
 [Ffuf github](https://github.com/ffuf/ffuf)
+
+[Tero Karvinen fuffme-web-fuzzing-target](https://terokarvinen.com/2023/fuffme-web-fuzzing-target-debian/)
