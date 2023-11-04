@@ -94,17 +94,29 @@ Param Mining. (Nyt etsimme parametrien arvoja, joita sivulta saattaisi löytyä,
 
 ![Alt text](/H2Sniff-n-Scan/h2.b7.png)  
 ![Alt text](/H2Sniff-n-Scan/h2.b9.png) 
+
 Rate Limited. (Tämän harjoitussivun komennot on väärin kirjoitettu ffuf -w ~/wordlists/common.txt -u http://ffuf.test/cd/rate/FUZZ -mc 200,429. "ffuf.test" pitää korvata "localhost". -mc näyttää vain halutut statukset, tässä tapauksessa http-statukset 200 ja 429.)  
 
     $ ffuf -v -c -w ~/wordlists/common.txt -u http://localhost/cd/rate/FUZZ -mc 200,429
 ![Alt text](/H2Sniff-n-Scan/h2.b10.png) 
  
-Komento antaa vastaukseksi vain paljon 429 HTTP statusksia. Tämä tarkoittaa, että minut on väliaikasesti estetty lähettämästä pyyntöjä kyseiseen osoitteeseen. 
+Komento antaa vastaukseksi vain paljon 429 HTTP statusksia. Tämä tarkoittaa, että minut on väliaikasesti estetty lähettämästä pyyntöjä kyseiseen osoitteeseen. Harjoitusmaalisivun esimerkki komentoon lisätään -t =(määrittää samanaikaisesti suoritettavien hakujen määrän) ja -p =(kytkin määrittää aikaviiveen sekunteina) eli hidastamme omaa hakuliikennettä, jotta meidän toiminta ei ole niin huomattavaa.
 
     $ ffuf -v -c -w ~/wordlists/common.txt -t 5 -p 0.1 -u http://localhost/cd/rate/FUZZ -mc 200,429
 ![Alt text](/H2Sniff-n-Scan/h2.b11.png) 
+![Alt text](/H2Sniff-n-Scan/h2.b12.png) 
 
-Subdomains - Virtual Host Enumeration
+Subdomains - Virtual Host Enumeration. 
+    
+    $ ffuf -v -c -w ~/wordlists/subdomains.txt -H "Host: FUZZ.ffuf.me" -u http://localhost
+![Alt text](/H2Sniff-n-Scan/h2.b13.png) 
+
+Komennolla vastauksia tulee taas paljon, joten lisätään suodatin koon mukaan -fs 1495. 
+
+    $ ffuf -v -c -w ~/wordlists/subdomains.txt -H "Host: FUZZ.ffuf.me" -u http://localhost -fs 1495
+![Alt text](/H2Sniff-n-Scan/h2.b14.png) 
+
+Löysimme halutun subdomainin, joten moduuli suoritettu.
 Porttiskannaa paikallinen kone (127.0.0.2 tms), sieppaa liikenne snifferillä, analysoi.
 ## c) nmap TCP connect scan -sT
 ## d) nmap TCP SYN "used to be stealth" scan, -sS (tätä käytetään skannatessa useimmin)
