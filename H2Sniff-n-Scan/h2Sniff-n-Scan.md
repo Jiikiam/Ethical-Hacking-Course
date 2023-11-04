@@ -47,7 +47,7 @@ Kun testasin antamia aliverkkojen osoitteita, kaikki näyttivät melkein samalta
 
 Jokaisen sivun paitsi /render... sivun sanoman "You found it!" mukaan oletan, että pääsin tehtävän läpi.
 
-## b) Fuffme. Asenna Ffufme harjoitusmaali paikallisesti omalle koneellesi. Ratkaise tehtävät (kaikki paitsi ei "Content Discovery - Pipes")
+## b) Fuffme. Asenna Ffufme harjoitusmaali paikallisesti omalle koneellesi. Ratkaise tehtävät.
 Ensiksi asensin docker.oi, koska se pitää olla asennettuna. Lisäksi asensin 3 sanalistaa omaan kansioon valmiiksi, joita tarvitsemme fuzzaukseen.
 
     $ sudo apt install docker.io
@@ -74,12 +74,36 @@ Content Discovery With Recursion. (-recursion kertoo ffuf-ohjelmalle, että jos 
      $ ffuf -v -c -w ~/wordlists/common.txt -recursion -u http://localhost/cd/recursion/FUZZ
 ![Alt text](/H2Sniff-n-Scan/h2.b3.png)
 
-Content Discovery With File Extensions
+Content Discovery With File Extensions.(-e märittää tiedostopäätetyypin jota haemme. Tiedostotyypin lisätään jokaisen sanalistan sanan loppuun, jotta löydämme oikeat lokitiedostot.)
 
-    $ ffuf -v -c -w ~/wordlists/common.txt -recursion -u http://localhost/cd/recursion/FUZZ
-No 404 Status
-Param Mining
-Rate Limited
+    $ ffuf -v -c -w ~/wordlists/common.txt -e .log -u http://localhost/cd/ext/logs/FUZZ 
+![Alt text](/H2Sniff-n-Scan/h2.b4.png)
+No 404 Status.
+
+    $ ffuf -v -c -w ~/wordlists/common.txt -u http://localhost/cd/no404/FUZZ
+![Alt text](/H2Sniff-n-Scan/h2.b5.png)   
+Harjoitussivun esimerkki antaa todella paljon vastauksia, joten lisätään suodatin (joista mainittu aikaisemmin kohdissa x ja a), jonkun yleisen vastauksen piirteen mukaan. Kuten harjoitussivulla on mainittu lisätään suodatin koon mukaan -fs 669.
+
+    $ ffuf -v -c -w ~/wordlists/common.txt -u http://localhost/cd/no404/FUZZ -fs 669
+![Alt text](/H2Sniff-n-Scan/h2.b6.png)  
+
+Param Mining. (Nyt etsimme parametrien arvoja, joita sivulta saattaisi löytyä, koska localhost/cd/param/data ilmoittaa "Required Parameter Missing". Koska etsimme parametrejä käytettään eri sanalistaa parameters.txt.)
+![Alt text](/H2Sniff-n-Scan/h2.b8.png) 
+
+    $ ffuf -v -c -w ~/wordlists/parameters.txt -u http://localhost/cd/param/data?FUZZ=1
+
+![Alt text](/H2Sniff-n-Scan/h2.b7.png)  
+![Alt text](/H2Sniff-n-Scan/h2.b9.png) 
+Rate Limited. (Tämän harjoitussivun komennot on väärin kirjoitettu ffuf -w ~/wordlists/common.txt -u http://ffuf.test/cd/rate/FUZZ -mc 200,429. "ffuf.test" pitää korvata "localhost". -mc näyttää vain halutut statukset, tässä tapauksessa http-statukset 200 ja 429.)  
+
+    $ ffuf -v -c -w ~/wordlists/common.txt -u http://localhost/cd/rate/FUZZ -mc 200,429
+![Alt text](/H2Sniff-n-Scan/h2.b10.png) 
+ 
+Komento antaa vastaukseksi vain paljon 429 HTTP statusksia. Tämä tarkoittaa, että minut on väliaikasesti estetty lähettämästä pyyntöjä kyseiseen osoitteeseen. 
+
+    $ ffuf -v -c -w ~/wordlists/common.txt -t 5 -p 0.1 -u http://localhost/cd/rate/FUZZ -mc 200,429
+![Alt text](/H2Sniff-n-Scan/h2.b11.png) 
+
 Subdomains - Virtual Host Enumeration
 Porttiskannaa paikallinen kone (127.0.0.2 tms), sieppaa liikenne snifferillä, analysoi.
 ## c) nmap TCP connect scan -sT
