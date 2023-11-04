@@ -64,6 +64,7 @@ Sen ladataan harjoitusmaalin koneelle ja käynnistetään se. (Jos apache on pä
     $ sudo docker run -d -p 80:80 ffufme
 ![Alt text](/H2Sniff-n-Scan/h2.b1.png)
 Ja sitten fuzzaamaan.Käytän komennossa harjoitusmaalisivulla mainutun komennon lisäksi -v -c valintoja, koska tulostus selkeämmin luettava.
+
 Basic Content Discovery. 
 
     $ ffuf -v -c -w ~/wordlists/common.txt -u http://localhost/cd/basic/FUZZ
