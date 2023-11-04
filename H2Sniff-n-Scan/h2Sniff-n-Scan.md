@@ -178,8 +178,14 @@ Wiresharkin liikenne näyttää jälleen päällisinpuolin "normaalilta".
 ![Alt text](/H2Sniff-n-Scan/h2.i2.png)
 
 Kuten kuvasta näkyy tarpeeksi nmapin pyyntöjä hidastamalla liikennettä pystyy kontrolloida. Kun painoin suorituksen aikana ? näkyy saatavilla olevat kontrollit suorituksen aikana: ?, v/V, d/D, p/P, anything else Print status.
-## j) Ninjojen tapaan. Piiloutuuko nmap-skannaus hyvin palvelimelta? Vinkkejä: Asenna Apache. Aja nmap-versioskannaus -sV tai -A omaan paikalliseen weppipalvelimeen. Etsi Apachen lokista tätä koskevat rivit. Wiresharkissa "http" on kätevä filtteri, se tulee siihen yläreunan "Apply a display filter..." -kenttään. Nmap-ajon aikana p laittaa packet tracing päälle. Vapaaehtoinen lisäkohta: jääkö Apachen lokiin jokin todiste nmap-versioskannauksesta?
+## j) Ninjojen tapaan. Piiloutuuko nmap-skannaus hyvin palvelimelta? 
 
+     $ sudo nmap -T 1 -sS 127.0.0.1
+![Alt text](/H2Sniff-n-Scan/h2.j1.png)
+
+Nmap skannauksessa webbipalvelimelle lähetettiin yli 200 pakettia ja se ei varmasti jää huomaamatta, jos joku liikennettä tutkii. Skannauksessa GET pyyntöjen lisäksi webbipalvelimelta kyseltiin "Options / HTTP /1.1" useaan kertaan. Options pyynnöt yrittävät kerätä tietoa webbipalvelusta. 
+
+Kuvassa paketti 2120 on varmaan viite siitä, että apachen lokiin jää tieto nmap skannauksesta.
 ## k) UDP-skannaus. UDP-skannaa paikkalinen kone (-sU). "Mulla olis vitsi UDP:sta, mutta en tiedä menisikö se perille":
 ## l) Miksi UDP-skannaus on hankalaa ja epäluotettavaa? Miksi UDP-skannauksen kanssa kannattaa käyttää --reason flagia ja snifferiä? (tässä alakohdassa vain vastaus viitteineen, ei tarvita testiä tietokoneella)
 
