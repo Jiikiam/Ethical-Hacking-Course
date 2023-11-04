@@ -79,6 +79,7 @@ Content Discovery With File Extensions.(-e märittää tiedostopäätetyypin jot
 
     $ ffuf -v -c -w ~/wordlists/common.txt -e .log -u http://localhost/cd/ext/logs/FUZZ 
 ![Alt text](/H2Sniff-n-Scan/h2.b4.png)
+
 No 404 Status.
 
     $ ffuf -v -c -w ~/wordlists/common.txt -u http://localhost/cd/no404/FUZZ
