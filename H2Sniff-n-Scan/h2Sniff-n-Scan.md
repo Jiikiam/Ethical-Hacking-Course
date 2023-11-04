@@ -119,14 +119,45 @@ Komennolla vastauksia tulee taas paljon, joten lisätään suodatin koon mukaan 
 ![Alt text](/H2Sniff-n-Scan/h2.b14.png) 
 
 Löysimme halutun subdomainin, joten moduuli suoritettu.
-Porttiskannaa paikallinen kone (127.0.0.2 tms), sieppaa liikenne snifferillä, analysoi.
+
 ## c) nmap TCP connect scan -sT
-## d) nmap TCP SYN "used to be stealth" scan, -sS (tätä käytetään skannatessa useimmin)
+Porttiskannaan paikallista konetta 127.0.0.2 kaikissa kohdissa missä käytän nmap skanneria.
+
+Nmap skannaa perus asetuksella portit väliltä 1-1000. -sT =(TCP connect scan) muodostaa yhteyden löytyneisiin portteihin.
+
+    $ nmap -sT 127.0.0.2
+![Alt text](/H2Sniff-n-Scan/h2.c1.png) 
+Minulta löytyi omalta koneelta vain yksi auki oleva TCP-portti 22/ssh, johon nmap sai muodostettua yhteyden.
+
+## d) nmap TCP SYN "used to be stealth" scan, -sS.
+-sS on nmapissa yleisesti parempi kuin -sT skanni. -sT skanni vie vähemmän aikaa ja vaatii vähemmän paketteja saman tiedon saamiseksi.
+
+    $ sudo nmap -sS 127.0.0.2
+![Alt text](/H2Sniff-n-Scan/h2.c2.png) 
 ## e) nmap ping sweep -sn
+
+    $ sudo nmap -sN 127.0.0.2
+![Alt text](/H2Sniff-n-Scan/h2.c3.png) 
+
+Komento antaa lisää tietoa portin tilasta. open|filtered. Nmap asettaa portit tähän tilaan, kun se ei pysty määrittämään, onko portti avoin vai suodatettu. Tämä tapahtuu sellaisissa skannaustyypeissä, joissa avoimet portit eivät anna mitään vastausta. Vastauksen puuttuminen voi myös tarkoittaa sitä, että pakettisuodatin hylkäsi kyselyn tai minkä tahansa vastauksen, jonka se aiheutti. 
 ## f) nmap don't ping -Pn
+-Pn estää ping-tarkistuksen, joten Nmap yrittää skannata kohdeosoitteen välittämättä siitä, vastaako se ping-pyyntöihin vai ei.
+
+    $ sudo nmap -Pn 127.0.0.2
+![Alt text](/H2Sniff-n-Scan/h2.c4.png) 
 ## g) nmap version detection -sV (esimerkki yhdestä palvelusta yhdessä portissa riittää)
+-sV yrittää selvittää, minkä version ohjelmaa palvelin käyttää vertaamalla vastauksia tiettyihin pyyntöjen parametreihin.
+
+    $ sudo nmap -sV 127.0.0.2
+![Alt text](/H2Sniff-n-Scan/h2.c5.png) 
 ## h) nmap output files -oA foo. Miltä tiedostot näyttävät? Mihin kukin tiedostotyyppi sopii?
+-oA foo tallentaa tulokset kolmeen eri tiedostoon: foo.nmap, foo.gnmap ja foo.xml.
+
+    $ sudo nmap -oA 127.0.0.2
+![Alt text](/H2Sniff-n-Scan/h2.c6.png)
+foo.nmap ja foo.gnamp käy ihan manuaaliseen tarkasteluun. .nmap on perus teksti tiedosto. .gnamp tiedoston grepable-muoto on tarkoitettu helpottamaan tiedon käsittelyä skripteillä tai komentorivityökaluilla. Foo.xml on strukturoitu data tiedosto, joka soveltuu tietokantaintegraatioihin ja ohjelmalliseen käsittelyyn.
 ## i) nmap ajonaikaiset toiminnot (man nmap: runtime interaction): verbosity v/V, help ?, packet tracing p/P, status s (ja moni muu nappi)
+
 ## j) Ninjojen tapaan. Piiloutuuko nmap-skannaus hyvin palvelimelta? Vinkkejä: Asenna Apache. Aja nmap-versioskannaus -sV tai -A omaan paikalliseen weppipalvelimeen. Etsi Apachen lokista tätä koskevat rivit. Wiresharkissa "http" on kätevä filtteri, se tulee siihen yläreunan "Apply a display filter..." -kenttään. Nmap-ajon aikana p laittaa packet tracing päälle. Vapaaehtoinen lisäkohta: jääkö Apachen lokiin jokin todiste nmap-versioskannauksesta?
 ## k) UDP-skannaus. UDP-skannaa paikkalinen kone (-sU). "Mulla olis vitsi UDP:sta, mutta en tiedä menisikö se perille":
 ## l) Miksi UDP-skannaus on hankalaa ja epäluotettavaa? Miksi UDP-skannauksen kanssa kannattaa käyttää --reason flagia ja snifferiä? (tässä alakohdassa vain vastaus viitteineen, ei tarvita testiä tietokoneella)
