@@ -186,8 +186,17 @@ Kuten kuvasta näkyy tarpeeksi nmapin pyyntöjä hidastamalla liikennettä pysty
 Nmap skannauksessa webbipalvelimelle lähetettiin yli 200 pakettia ja se ei varmasti jää huomaamatta, jos joku liikennettä tutkii. Skannauksessa GET pyyntöjen lisäksi webbipalvelimelta kyseltiin "Options / HTTP /1.1" useaan kertaan. Options pyynnöt yrittävät kerätä tietoa webbipalvelusta. 
 
 Kuvassa paketti 2120 on varmaan viite siitä, että apachen lokiin jää tieto nmap skannauksesta.
-## k) UDP-skannaus. UDP-skannaa paikkalinen kone (-sU). "Mulla olis vitsi UDP:sta, mutta en tiedä menisikö se perille":
+## k) UDP-skannaus -sU
+
+     $ sudo nmap -T 1 -sS 127.0.0.1
+![Alt text](/H2Sniff-n-Scan/h2.k1.png)
+![Alt text](/H2Sniff-n-Scan/h2.k2.png)
+
+Jokaiseen nmapin pyyntöön tuli vastaus ICMP viesti "Destination unreachable (Port unreachable)". Jos ICMP viesti tulee vastauksena pidetään porttia suljettuna.
+
 ## l) Miksi UDP-skannaus on hankalaa ja epäluotettavaa? Miksi UDP-skannauksen kanssa kannattaa käyttää --reason flagia ja snifferiä? (tässä alakohdassa vain vastaus viitteineen, ei tarvita testiä tietokoneella)
+Tiedän, että UDP on yhteydetön protokolla ja luulisin, että tämä on pääsyy siihen, miksi UDP skannaus on hankalaa. Lähde kertoi, että yleisesti UDP pyyntöihin ei vastata, jolloin nmap ei voi tunnistaa kohdeporttien tilaa. Tämä sama voidaan todeta omasta UDP skanni kokeilusta kohdassa k.TCP-portit on helppo skannata, koska 3-way handshake omainaisuus on, että [SYN] pyyntöihin vastataan. 
+
 
 ## Sources
 [Tero Karvinen/eettinen-hakkerointi-2023](https://terokarvinen.com/2023/eettinen-hakkerointi-2023/)
@@ -205,3 +214,5 @@ Kuvassa paketti 2120 on varmaan viite siitä, että apachen lokiin jää tieto n
 [Tero Karvinen fuffme-web-fuzzing-target](https://terokarvinen.com/2023/fuffme-web-fuzzing-target-debian/)
 
 [adamtlangley ffufme github](https://github.com/adamtlangley/ffufme)
+
+[Network Vulnerability and Scanning](https://koayyongcett.medium.com/lesson-6-network-vulnerability-and-scanning-udp-scan-d06c75787f5)
