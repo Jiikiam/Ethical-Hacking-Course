@@ -194,8 +194,10 @@ Kuvassa paketti 2120 on varmaan viite siitä, että apachen lokiin jää tieto n
 
 Jokaiseen nmapin pyyntöön tuli vastaus ICMP viesti "Destination unreachable (Port unreachable)". Jos ICMP viesti tulee vastauksena pidetään porttia suljettuna.
 
-## l) Miksi UDP-skannaus on hankalaa ja epäluotettavaa? Miksi UDP-skannauksen kanssa kannattaa käyttää --reason flagia ja snifferiä? (tässä alakohdassa vain vastaus viitteineen, ei tarvita testiä tietokoneella)
-Tiedän, että UDP on yhteydetön protokolla ja luulisin, että tämä on pääsyy siihen, miksi UDP skannaus on hankalaa. Lähde kertoi, että yleisesti UDP pyyntöihin ei vastata, jolloin nmap ei voi tunnistaa kohdeporttien tilaa. Tämä sama voidaan todeta omasta UDP skanni kokeilusta kohdassa k.TCP-portit on helppo skannata, koska 3-way handshake omainaisuus on, että [SYN] pyyntöihin vastataan. 
+## l) Miksi UDP-skannaus on hankalaa ja epäluotettavaa?
+Tiedän, että UDP on yhteydetön protokolla ja luulisin, että tämä on pääsyy siihen, miksi UDP skannaus on hankalaa. Lähde kertoi, että yleisesti UDP pyyntöihin ei vastata, jolloin nmap ei voi tunnistaa kohdeporttien tilaa. Tämä sama voidaan todeta omasta UDP skannaus kokeilusta kohdassa k. Myös UDP-portit lähettävät vastauksia harvemmin kuin TCP-portit.
+
+--reason flag antaa lisätietoa skannauksesta, joka voi hyödyttää UDP skannausta.
 
 
 ## Sources
