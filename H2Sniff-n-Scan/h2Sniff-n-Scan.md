@@ -188,6 +188,10 @@ Kuten kuvasta näkyy tarpeeksi nmapin pyyntöjä hidastamalla liikennettä pysty
 
 [joohoi ffuf esitys](https://www.youtube.com/watch?v=mbmsT3AhwWU)
 
+[nmap org port scanningtechniques](https://nmap.org/book/man-port-scanning-techniques.html)
+
+[nmap org port scanning basics](https://nmap.org/book/man-port-scanning-basics.html)
+
 [Tero Karvinen/fuzz-urls-hidden directories](https://terokarvinen.com/2023/fuzz-urls-find-hidden-directories/?fromSearch=ffuf#your-turn---challenge)
 
 [Ffuf github](https://github.com/ffuf/ffuf)
