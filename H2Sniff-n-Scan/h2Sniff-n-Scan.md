@@ -48,10 +48,35 @@ Kun testasin antamia aliverkkojen osoitteita, kaikki näyttivät melkein samalta
 Jokaisen sivun paitsi /render... sivun sanoman "You found it!" mukaan oletan, että pääsin tehtävän läpi.
 
 ## b) Fuffme. Asenna Ffufme harjoitusmaali paikallisesti omalle koneellesi. Ratkaise tehtävät (kaikki paitsi ei "Content Discovery - Pipes")
+Ensiksi asensin docker.oi, koska se pitää olla asennettuna. Lisäksi asensin 3 sanalistaa omaan kansioon valmiiksi, joita tarvitsemme fuzzaukseen.
 
-Basic Content Discovery
-Content Discovery With Recursion
+    $ sudo apt install docker.io
+    $ mkdir $HOME/wordlists
+    $ cd $HOME/wordlists
+    $ wget http://ffuf.me/wordlist/common.txt
+    $ wget http://ffuf.me/wordlist/parameters.txt 
+    $ wget http://ffuf.me/wordlist/subdomains.txt
+Sen ladataan harjoitusmaalin koneelle ja käynnistetään se. (Jos apache on päällä kuten itsellä oli ei käynnistys mene läpi, koska apache on vallannut portin 80. $ sudo systemctl disable apache2, laittaa apachen pois päältä.)
+
+    $ sudo apt-get install docker.io git ffuf
+    $ cd ffufme/
+    $ sudo docker build -t ffufme .
+    $ sudo docker run -d -p 80:80 ffufme
+![Alt text](/H2Sniff-n-Scan/h2.b1.png)
+Ja sitten fuzzaamaan.Käytän komennossa harjoitusmaalisivulla mainutun komennon lisäksi -v -c valintoja, koska tulostus selkeämmin luettava.
+Basic Content Discovery. 
+
+    $ ffuf -v -c -w ~/wordlists/common.txt -u http://localhost/cd/basic/FUZZ
+![Alt text](/H2Sniff-n-Scan/h2.b2.png)
+
+Content Discovery With Recursion. (-recursion kertoo ffuf-ohjelmalle, että jos se kohtaa kansion, sen tulisi aloittaa toinen skannaus kyseisessä kansiossa ja niin edelleen, kunnes enempää tuloksia ei löydy.)
+
+     $ ffuf -v -c -w ~/wordlists/common.txt -recursion -u http://localhost/cd/recursion/FUZZ
+![Alt text](/H2Sniff-n-Scan/h2.b3.png)
+
 Content Discovery With File Extensions
+
+    $ ffuf -v -c -w ~/wordlists/common.txt -recursion -u http://localhost/cd/recursion/FUZZ
 No 404 Status
 Param Mining
 Rate Limited
@@ -76,3 +101,5 @@ Porttiskannaa paikallinen kone (127.0.0.2 tms), sieppaa liikenne snifferillä, a
 [Ffuf github](https://github.com/ffuf/ffuf)
 
 [Tero Karvinen fuffme-web-fuzzing-target](https://terokarvinen.com/2023/fuffme-web-fuzzing-target-debian/)
+
+[adamtlangley ffufme github](https://github.com/adamtlangley/ffufme)
