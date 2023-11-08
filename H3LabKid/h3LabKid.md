@@ -18,7 +18,7 @@ Jälkimoduulit(Post modules)
 Koodin kääntäjät(Encoders)
 Ei operaatioita(No operations=NOPs)
 
-Nyrkkeilysäkki = Kalin ja Metasploitable 2:n asentaminen sekä kytkeminen samaan verkkoon. Luettu lähde (Riku Mannonen)[https://rikumannonen935063021.wordpress.com/]
+Nyrkkeilysäkki = Kalin ja Metasploitable 2:n asentaminen sekä kytkeminen samaan verkkoon. Luettu lähde (Riku Mannonen) https://rikumannonen935063021.wordpress.com/
 
 
 
