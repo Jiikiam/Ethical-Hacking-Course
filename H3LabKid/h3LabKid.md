@@ -88,6 +88,8 @@ Tämän jälkeen testasin pingiä kalin ja metasploitablen välillä. Näyttää
 ## d
 
 ## Lähteet
+https://terokarvinen.com/2023/eettinen-hakkerointi-2023/
+
 https://rikumannonen935063021.wordpress.com/
 
 https://sourceforge.net/projects/metasploitable/
