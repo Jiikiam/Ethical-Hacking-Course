@@ -80,7 +80,7 @@ Nyt ainakin nat yhteys pelaa. Kun haluaa kalin internet yhteyden pois päältä 
 
 ![Alt text](/H3LabKid/h3.c12.png)
 
-Tämän jälkeen testasin pingiä kalin ja metasploitablen välillä. Näyttää toimivan. Lisäksi testasin 
+Tämän jälkeen testasin pingiä kalin ja metasploitablen välillä näyttää toimivan.
 
 ![Alt text](/H3LabKid/h3.c9.png)
 ![Alt text](/H3LabKid/h3.c10.png)
