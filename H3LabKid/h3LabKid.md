@@ -46,8 +46,7 @@ Jätin hostnamen suositukseksi. Domain name ei tarvitse lisätä. Sen jälkeen k
 ![Alt text](/H3LabKid/h3.a6.png)
 
 ## b) Asenna Metasploitable 2 virtuaalikoneeseen
-
-
+Metasploitable 2 lataus [täältä](https://sourceforge.net/projects/metasploitable/)
 
 
 
@@ -70,4 +69,6 @@ Jätin hostnamen suositukseksi. Domain name ei tarvitse lisätä. Sen jälkeen k
 
 
 ## Lähteet
-(https://rikumannonen935063021.wordpress.com/)[https://rikumannonen935063021.wordpress.com/]
+https://rikumannonen935063021.wordpress.com/
+
+https://www.geeksforgeeks.org/how-to-install-metasploitable-2-in-virtualbox/
