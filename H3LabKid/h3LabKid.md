@@ -20,6 +20,51 @@ Ei operaatioita(No operations=NOPs)
 
 Nyrkkeilysäkki = Kalin ja Metasploitable 2:n asentaminen sekä kytkeminen samaan verkkoon. Luettu lähde (Riku Mannonen) https://rikumannonen935063021.wordpress.com/
 
+## a) Kalin linuxin asennus virtualboxille.
+Aluksi tarvitsee virtualisointi alusta. Itsellä käytössä on [virtualbox](https://www.virtualbox.org/). Sen jälkeen vain asentakaan kali linux. Kali linuxin ISO tiedon saa ladattua [kali.org](https://www.kali.org/get-kali/#kali-installer-images) sivulta. Sitten kali linux pitää lisätä virtual boxiin ja asentaa käyttövalmiiksi.
+
+Kun kali linuxin ISO on ladattu käynnistin virtual boxin ja painoin "New". Asetin haluaman vertiaalikoneen nimen, sekä tarvittavan typen ja version.
+
+![Alt text](/H3LabKid/h3.a1.png)
+
+Sitten ram muistin sekä prosessorien määrän asettaminen. Määritetään tarvittava levyn koko. Sitten next ja finnish.
+
+![Alt text](/H3LabKid/h3.a2.png)
+
+![Alt text](/H3LabKid/h3.a3.png)
+
+Virtual boxissa settings kohdasta lisäsin storage kohtaan ladatun ISO tiedoston ja sen jälkeen startasin kali linuxin asennusohjelman virtual boxin start kohdasta.
+
+![Alt text](/H3LabKid/h3.a4.png)
+
+Valitsin Graphical install. Valitsin kielen, sijainnin ja näppäimistönkielen.
+
+![Alt text](/H3LabKid/h3.a5.png)
+
+Jätin hostnamen suositukseksi. Domain name ei tarvitse lisätä. Sen jälkeen käyttäjän lisääminen ja continue muutaman kerran ja asennus alkaa. Kun asennus on valmis virtuaalitietokone käynistyy uudelleen ja kysyy käyttäjätietoja. Kalin asennus on valmis.
+
+![Alt text](/H3LabKid/h3.a6.png)
+
+## b) Asenna Metasploitable 2 virtuaalikoneeseen
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
