@@ -46,14 +46,20 @@ Jätin hostnamen suositukseksi. Domain name ei tarvitse lisätä. Sen jälkeen k
 ![Alt text](/H3LabKid/h3.a6.png)
 
 ## b) Asenna Metasploitable 2 virtuaalikoneeseen
-Metasploitable 2 lataus [täältä](https://sourceforge.net/projects/metasploitable/)
+Metasploitable 2 lataus [täältä](https://sourceforge.net/projects/metasploitable/). Metasploitablen asentaminen pitäisi onnistu vain virtual boxiin lisäämisellä ja käynnistämisellä. Jostain syystä käynnistyksen yhteydessä kohtasin seuraavan ongelman. 
 
+![Alt text](/H3LabKid/h3.b1.png)
 
+Netistä, kun lukee niin tämä ongelmä näyttää ilmenneen ainakin vuoden ajan. Että sain käynnistettyä metasploitablen minun piti käynnistyksen aikana painaa ESC, jotta pääsi grub loaderiin. Sen jälkeen muokkasin Ubuntu 8.04, kernel 2.6.24-16-server kohtaa painamalla 'e'.
 
+![Alt text](/H3LabKid/h3.b2.png)
 
+Sitten muokkasin kohtia root ja kernel lisäämällä 'noapic' niiden perään. Tämän jälkeen painoin 'b' ja metasploitable käynnistyi onnistuneesti.
 
+![Alt text](/H3LabKid/h3.b3.png)
+![Alt text](/H3LabKid/h3.b4.png)
 
-
+## 
 
 
 
@@ -70,5 +76,9 @@ Metasploitable 2 lataus [täältä](https://sourceforge.net/projects/metasploita
 
 ## Lähteet
 https://rikumannonen935063021.wordpress.com/
+
 https://sourceforge.net/projects/metasploitable/
+
 https://www.geeksforgeeks.org/how-to-install-metasploitable-2-in-virtualbox/
+
+
