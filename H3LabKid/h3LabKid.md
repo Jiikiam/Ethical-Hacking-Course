@@ -176,7 +176,46 @@ Huomataan, että tehty session on 2. Seuraavaksi suoritetaan tehty sessio komenn
 
 Sain muutettua session meterpreter sessioksi ja nyt olen tyytyväinen.
 
-## h) Etsi, tutki ja kuvaile jokin hyökkäys ExploitDB:sta. (Tässä harjoitustehtävässä pitää hakea ja kuvailla hyökkäys, itse hyökkääminen jää vapaaehtoiseksi lisätehtäväksi)
+## h) Etsi, tutki ja kuvaile jokin hyökkäys ExploitDB:sta
+Valitsin tähän käyttäjätunnuksen tunnistamis haavoittuvuuden ServiceNow järjestelmässä[EDB-ID: 50741](https://www.exploit-db.com/exploits/50741). Tässä haavoittuvuudessa järjestelmän salasanan palautuslomakkeen kautta pystytään selvittämään onko x niminen käyttäjä jo olemassa. Tämä johtuu siitä, että HTTP POST pyyntö palauttaa erilaisen vastauksen riippuen käyttäjän olemassa olosta. Tarkemmin järjestelmä palauttaa xml vastauksen joko muodossa 200 jos käyttäjä on olemassa tai 500 jos ei ole. Tämän avulla hyökkääjä voi käyttää sanalistaa ja automatisoida käyttäjätunnusten tarkistamisen selvittääkseen, mitkä käyttäjätunnukset ovat voimassa palvelussa.
+
+## i) Etsi, tutki ja kuvaile hyökkäys 'searchsploit' -komennolla. Muista päivittää. (Tässä harjoitustehtävässä pitää hakea ja kuvailla hyökkäys, itse hyökkääminen jää vapaaehtoiseksi lisätehtäväksi. Valitse eri hyökkäys kuin edellisessä kohdassa.)
+
+
+
+## j) Kokeile vapaavalintaista haavoittuvuusskanneria johonkin Metasploitablen palveluun. (Esim. nikto, wpscan, openvas, nessus, nucleus tai joku muu)
+Käytin haavoittuvuuksien skannaukseen niktoa, koska se löytyä valmiina kalilta. 
+
+![Alt text](/H3LabKid/h3.j1.png)
+
+Tulosteesta huomataan, että esimerkiksi:
+
+apachen versio on vanha, josta voi olla jotain hyötyä. Lisäksi apachen oletuskonfiguraatio etäkäyttäjien lukea koko palvelimen dokumentaatiotiedostoja. https://nvd.nist.gov/vuln/detail/CVE-1999-0678
+
+Nikto listasi myös OSVDB-12184 https://dev.nmap.narkive.com/qbxGwwaj/nse-php-version-disclosure-osvdb-12184 joka liittyy PHP palveluun lisäksi myös CVE-2003-1418 https://nvd.nist.gov/vuln/detail/CVE-2003-1418 joka voi paljastaa sensitiivisiä tietoja luvattomalle osapuolelle. Ja lisää PHP haavoittuvuuksia https://cwe.mitre.org/data/definitions/552.html, joka mahdollistaa luvattoman pääsyn tiedostoihin ja directoryihin.
+
+HTTP TRACE metodi on akticvoitunu, joka viittaa, että kohde on XST(Cross-Site Tracing) haavoittuvainen https://owasp.org/www-community/attacks/Cross_Site_Tracing
+
+## k) Kokeile jotain itsellesi uutta työkalua, joka mainittiin x-kohdan läpikävelyohjeessa.
+grpcurl tietokoneelle murtautumiseen. koska pc hackthebox oli metasploitin käyttö ja 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ## Lähteet
@@ -194,4 +233,4 @@ Sain muutettua session meterpreter sessioksi ja nyt olen tyytyväinen.
 
 7 https://infosecwriteups.com/metasploit-upgrade-normal-shell-to-meterpreter-shell-2f09be895646
 
-
+8 https://www.exploit-db.com/exploits/50741
