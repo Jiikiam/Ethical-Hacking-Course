@@ -114,6 +114,7 @@ Selvästi olen löytänyt oikein ip-osoiteen eli metasploitablen osoitteen.
 Tein laajemman skannauksen metasploitableen. -A yleisesti laajempi skannaus (eri versiot, script scanning jne.). Kaikki portit saadaan skannattua -p0- 
 
     $ db_nmap -A -p0- 192.168.56.102
+![Alt text](/H3LabKid/h3.e1.png)
 
 Metasploitablelta löytyi noin 20 avointa tcp porttia. Porttiskannaus kertoi porteissa pyörivien palveluiden versiot joiden avulla esimerkiksi [exploit DB:stä](https://www.exploit-db.com/) pystyisi hakemaan haavoittuvuuksia kyseisten palveluiden versioille. Lisäksi listasi myös muita saatuja tietoja tcp porttien palveluista. Tämä oli itselle ensimmäinen kerta, kun porttiskannaan jotain muuta kuin localhostia. Lähinni suurin osa tulostuksesta on uutta, joten en osaa sanoa mikä siinä olisi erikoista.
 
