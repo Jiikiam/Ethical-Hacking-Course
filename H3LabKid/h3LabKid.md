@@ -85,7 +85,40 @@ Tämän jälkeen testasin pingiä kalin ja metasploitablen välillä näyttää 
 ![Alt text](/H3LabKid/h3.c9.png)
 ![Alt text](/H3LabKid/h3.c10.png)
 
-## d
+## d) Etsi Metasploitable porttiskannaamalla (db_nmap -sn). Tarkista selaimella, että löysit oikean IP:n - Metasploitablen weppipalvelimen etusivulla lukee Metasploitable. Katso, ettei skannauspaketteja vuoda Internetiin - kannattaa irrottaa koneet netistä skannatessa.
+Otin Kalin nat yhteyden aluksi pois eli nyt koneet eivät ole yhteydessä nettiin. Kalin ja metasploitablen välillä toimii virtuaalinen only-host verkko. Testasin, että nettiin ei ole yhteyttä. 
+
+![Alt text](/H3LabKid/h3.d1.png)
+![Alt text](/H3LabKid/h3.d2.png)
+
+Loin msfdb tietokannan ja käynnistin kalilla metasploit framworking.
+
+    $ sudo msfdb init
+    $ msfconsole
+
+Sitten katsoin hosts komennolla metasploitablen ip:n ja etsin porttiskannerilla sitä ip-osoitetta.
+
+    $ hosts
+    $ db_nmap -sn 192.168.56.102
+
+![Alt text](/H3LabKid/h3.d4.png)
+
+Totesin, että kyseinen verkko pitäisi olla olemassa, niin hain sitä netistä sen ip-osoitteella.
+
+![Alt text](/H3LabKid/h3.d5.png)
+    
+Selvästi olen löytänyt oikein ip-osoiteen eli metasploitablen osoitteen.
+
+
+
+
+
+
+
+
+
+
+
 
 ## Lähteet
 https://terokarvinen.com/2023/eettinen-hakkerointi-2023/
