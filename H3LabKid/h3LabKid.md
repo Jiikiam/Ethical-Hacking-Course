@@ -85,7 +85,7 @@ Tämän jälkeen testasin pingiä kalin ja metasploitablen välillä näyttää 
 ![Alt text](/H3LabKid/h3.c9.png)
 ![Alt text](/H3LabKid/h3.c10.png)
 
-## d) Etsi Metasploitable porttiskannaamalla (db_nmap -sn). Tarkista selaimella, että löysit oikean IP:n - Metasploitablen weppipalvelimen etusivulla lukee Metasploitable. Katso, ettei skannauspaketteja vuoda Internetiin - kannattaa irrottaa koneet netistä skannatessa.
+## d) Etsi Metasploitable porttiskannaamalla
 Otin Kalin nat yhteyden aluksi pois eli nyt koneet eivät ole yhteydessä nettiin. Kalin ja metasploitablen välillä toimii virtuaalinen only-host verkko. Testasin, että nettiin ei ole yhteyttä. 
 
 ![Alt text](/H3LabKid/h3.d1.png)
@@ -109,9 +109,33 @@ Totesin, että kyseinen verkko pitäisi olla olemassa, niin hain sitä netistä 
     
 Selvästi olen löytänyt oikein ip-osoiteen eli metasploitablen osoitteen.
 
+## e) Porttiskannaa Metasploitable huolellisesti. Analysoi tulos. 
 
+Tein laajemman skannauksen metasploitableen. -A yleisesti laajempi skannaus (eri versiot, script scanning jne.). Kaikki portit saadaan skannattua -p0- 
 
+    $ db_nmap -A -p0- 192.168.56.102
 
+Metasploitablelta löytyi noin 20 avointa tcp porttia. Porttiskannaus kertoi porteissa pyörivien palveluiden versiot joiden avulla esimerkiksi [exploit DB:stä](https://www.exploit-db.com/) pystyisi hakemaan haavoittuvuuksia kyseisten palveluiden versioille. Lisäksi listasi myös muita saatuja tietoja tcp porttien palveluista. Tämä oli itselle ensimmäinen kerta, kun porttiskannaan jotain muuta kuin localhostia. Lähinni suurin osa tulostuksesta on uutta, joten en osaa sanoa mikä siinä olisi erikoista.
+
+## f) Murtaudu Metasploitablen VsFtpd-palveluun Metasploitilla
+
+Heataan msf:sta löytyykö kohteen vsftpd versiolle haavoittuvuutta. 
+
+    > search vsftpd
+![Alt text](/H3LabKid/h3.f1.png)
+
+Löytyi yksi joten valitsin sen ja katsoin mitä asetuksia tälle pystyy asettamaan.
+
+    $ use 0
+    $ show options
+![Alt text](/H3LabKid/h3.f2.png)
+
+RPORT on automaattisesti määritelty 21, joten lisätään RHOSTS metasploitablen osoite.
+
+    $ set rhosts 192.168.56.102
+Tämän jälkeen hyökkäsin palveluun exploit komennolla. Kun shell yhteys on saatu kohteeseen voidaan hakea esimerkikse perus tietoja kohteesta komennoilla: whoami, id ja ifconfig.
+
+![Alt text](/H3LabKid/h3.f3.png)
 
 
 
