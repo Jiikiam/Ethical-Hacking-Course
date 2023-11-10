@@ -177,46 +177,76 @@ Huomataan, että tehty session on 2. Seuraavaksi suoritetaan tehty sessio komenn
 Sain muutettua session meterpreter sessioksi ja nyt olen tyytyväinen.
 
 ## h) Etsi, tutki ja kuvaile jokin hyökkäys ExploitDB:sta
-Valitsin tähän käyttäjätunnuksen tunnistamis haavoittuvuuden ServiceNow järjestelmässä[EDB-ID: 50741](https://www.exploit-db.com/exploits/50741). Tässä haavoittuvuudessa järjestelmän salasanan palautuslomakkeen kautta pystytään selvittämään onko x niminen käyttäjä jo olemassa. Tämä johtuu siitä, että HTTP POST pyyntö palauttaa erilaisen vastauksen riippuen käyttäjän olemassa olosta. Tarkemmin järjestelmä palauttaa xml vastauksen joko muodossa 200 jos käyttäjä on olemassa tai 500 jos ei ole. Tämän avulla hyökkääjä voi käyttää sanalistaa ja automatisoida käyttäjätunnusten tarkistamisen selvittääkseen, mitkä käyttäjätunnukset ovat voimassa palvelussa.
+Valitsin tähän käyttäjätunnuksen tunnistamis haavoittuvuuden ServiceNow järjestelmässä[EDB-ID: 50741](https://www.exploit-db.com/exploits/50741). Tässä haavoittuvuudessa järjestelmän salasanan palautuslomakkeen kautta pystytään selvittämään onko x niminen käyttäjä jo olemassa. Tämä johtuu siitä, että HTTP POST pyyntö palauttaa erilaisen vastauksen riippuen käyttäjän olemassa olosta. Tarkemmin järjestelmä palauttaa xml vastauksen joko muodossa 200 jos käyttäjä on olemassa tai 500 jos ei ole. Tämän avulla hyökkääjä voi käyttää sanalistaa ja automatisoida käyttäjätunnusten tarkistamisen selvittääkseen, mitkä käyttäjätunnukset ovat voimassa palvelussa: Tätä tietoa pystyy hyödyntämään esimerkiksi käyttäjien salasanojen murtamisessa/kalastelussa. 
 
-## i) Etsi, tutki ja kuvaile hyökkäys 'searchsploit' -komennolla. Muista päivittää. (Tässä harjoitustehtävässä pitää hakea ja kuvailla hyökkäys, itse hyökkääminen jää vapaaehtoiseksi lisätehtäväksi. Valitse eri hyökkäys kuin edellisessä kohdassa.)
+## i) Etsi, tutki ja kuvaile hyökkäys 'searchsploit' -komennolla
+Ensiksi searchsploitin päivitys
 
+    $ searchsploit -u
+Sitten hain tietokannasta haavoittuvuuksia. -t tarkoittaa, että otsikkon pitää sisältää apple mac.
 
+    $ searchsploit -t apple mac
+![Alt text](/H3LabKid/h3.i1.png)
+![Alt text](/H3LabKid/h3.i3.png)  
 
-## j) Kokeile vapaavalintaista haavoittuvuusskanneria johonkin Metasploitablen palveluun. (Esim. nikto, wpscan, openvas, nessus, nucleus tai joku muu)
-Käytin haavoittuvuuksien skannaukseen niktoa, koska se löytyä valmiina kalilta. 
+Valitsin listan alhaalta haavoittuvuuden macOS 10.13 (17A365) - Kernel Memory Disclosure due to Lack of Bounds Checking in 'AppleIntelCapriController::getDisplayPipeCapability'. Haavoittuvuus öytyy täältä https://www.exploit-db.com/exploits/43780.
+
+Kopion haavoittuvuuden kalin työpöydälle, että pääsen helposti tarkasteleemaan haavoittuvuuden ominaisuuksia.
+
+    $ sudo cp /usr/share/exploitdb/exploits/macos/dos/43780.c /home/jokke/Desktop 
+![Alt text](/H3LabKid/h3.i2.png)  
+
+Rehellisesti en paljoa koodista ymmärtänyt, mutta käsitin, että kyseessä on puskurin ylivuoto haavvoittuvuus 'AppleIntelCapriController::getDisplayPipeCapability' moduulissa, jonka avulla järjestelmän muistista on mahdollista saada jotain tietoja.
+
+## j) Kokeile vapaavalintaista haavoittuvuusskanneria johonkin Metasploitablen palveluun. 
+Testasin skanneria yleisesti koko metasploitableen. Käytin haavoittuvuuksien skannaukseen niktoa, koska se löytyä valmiina kalilta. 
 
 ![Alt text](/H3LabKid/h3.j1.png)
 
 Tulosteesta huomataan, että esimerkiksi:
 
-apachen versio on vanha, josta voi olla jotain hyötyä. Lisäksi apachen oletuskonfiguraatio etäkäyttäjien lukea koko palvelimen dokumentaatiotiedostoja. https://nvd.nist.gov/vuln/detail/CVE-1999-0678
+apachen versio on vanha, josta voi olla jotain hyötyä. Lisäksi apachen oletuskonfiguraatio etäkäyttäjien lukea koko palvelimen dokumentaatiotiedostoja. https://nvd.nist.gov/vuln/detail/CVE-1999-0678.
 
 Nikto listasi myös OSVDB-12184 https://dev.nmap.narkive.com/qbxGwwaj/nse-php-version-disclosure-osvdb-12184 joka liittyy PHP palveluun lisäksi myös CVE-2003-1418 https://nvd.nist.gov/vuln/detail/CVE-2003-1418 joka voi paljastaa sensitiivisiä tietoja luvattomalle osapuolelle. Ja lisää PHP haavoittuvuuksia https://cwe.mitre.org/data/definitions/552.html, joka mahdollistaa luvattoman pääsyn tiedostoihin ja directoryihin.
 
-HTTP TRACE metodi on akticvoitunu, joka viittaa, että kohde on XST(Cross-Site Tracing) haavoittuvainen https://owasp.org/www-community/attacks/Cross_Site_Tracing
+HTTP TRACE metodi on aktivoitu, joka viittaa, että kohde on XST(Cross-Site Tracing) haavoittuvainen https://owasp.org/www-community/attacks/Cross_Site_Tracing
 
 ## k) Kokeile jotain itsellesi uutta työkalua, joka mainittiin x-kohdan läpikävelyohjeessa.
-grpcurl tietokoneelle murtautumiseen. koska pc hackthebox oli metasploitin käyttö ja 
+Katsoin [HackTheBox - PC](https://www.youtube.com/watch?v=AQSLvalzW8g&ab_channel=IppSec) videon yuotubesta. Harjoituksessa tuli vastaan yksi uusi työkalu, joka oli (9)gRPCurl. gRPCurl on cli työkalu, jota käytetään gRPC serverin pyyntöjen tekemiseen.
 
+Asensin latasin Go:n(https://go.dev/doc/install), jotta voin kätevästi asentaa grpcurlin sen avulla, koska grRPCurl on Go-ohjelmointikieleen perustuva työkalu. Latasin go:n asennustiedoston kalille heidän sivuilta ja tein asennuksen sivun ohjeiden mukaan.
 
+    $ rm -rf /usr/local/go && tar -C /usr/local -xzf go1.21.4.linux-amd64.tar.gz
+    $ export PATH=$PATH:/usr/local/go/bin
+Sitten asensin gRPCurlin.
 
+    $ go install github.com/fullstorydev/grpcurl/cmd/grpcurl@latest
 
+![Alt text](/H3LabKid/h3.k1.png)
 
+grpculr ei vielä toimi, joten määritellään sille polku.
 
+    $ go install github.com/fullstorydev/grpcurl/cmd/grpcurl@latest
+    $ export PATH=$PATH:/home/jokke/go/bin
+![Alt text](/H3LabKid/h3.k2.png)
+Nyt huomataan, että gRPCurl toimii. Tarvitsen myös jonkin alustan gRPC-palvelun johon voin gRPCurlia kokeilla. Löysin lähteen 10, jossa hän oli rakentanut gRPC testiymäpäristön. Kloonasit github repositorion ja asensin samalla protoc:in, jotta palvelu toimiii.
 
+    $ git clone https://github.com/nicholasjackson/all-things-microservices 
+    $ sudo apt install protobuf-compiler  
+Sitten käynnistin testi gRPC palvelun
 
+    $ go run main.go   
+![Alt text](/H3LabKid/h3.k3.png)
 
+Sitten käyttämään gRPCurlia. Katsotan esin mitä vaihtoehtoja gRPCurlille on.
 
+    $ grpcurl -h
+![Alt text](/H3LabKid/h3.k5.png)
 
+Esimerkiksi seuraava komento näyttää gRPC palvelut jotka ovat käynnissä testiympäristössä. --plaintext valintaa pitää käyttää, koska gRPC käyttää vakiona TLS salausta. 
 
-
-
-
-
-
-
-
+      $ grpcurl --plaintext localhost:9092 list
+![Alt text](/H3LabKid/h3.k4.png)
 
 ## Lähteet
 1 https://terokarvinen.com/2023/eettinen-hakkerointi-2023/
@@ -234,3 +264,7 @@ grpcurl tietokoneelle murtautumiseen. koska pc hackthebox oli metasploitin käyt
 7 https://infosecwriteups.com/metasploit-upgrade-normal-shell-to-meterpreter-shell-2f09be895646
 
 8 https://www.exploit-db.com/exploits/50741
+
+9 https://github.com/fullstorydev/grpcurl
+
+10 https://github.com/nicholasjackson/all-things-microservices
