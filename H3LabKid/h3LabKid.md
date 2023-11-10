@@ -248,6 +248,12 @@ Esimerkiksi seuraava komento näyttää gRPC palvelut jotka ovat käynnissä tes
       $ grpcurl --plaintext localhost:9092 list
 ![Alt text](/H3LabKid/h3.k4.png)
 
+    $ grpcurl --plaintext localhost:9092 describe Currency
+
+Antaa lisää tieto mitä Currency palvelu pitää sisällään.
+
+![Alt text](/H3LabKid/h3.k6.png)
+
 ## m) Vapaaehtoinen: Kokeile hyökkäystä, joka löytyy ExploitDB:sta. Huomaa, että joidenkin vanhempien hyökkäysten mukana tulee harjoitusmaali.
 
 ## n) Vapaaehtoinen: Murtaudu johonkin toiseen Metasploitablen palveluun.
