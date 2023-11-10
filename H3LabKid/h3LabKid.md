@@ -196,7 +196,7 @@ Kopion haavoittuvuuden kalin työpöydälle, että pääsen helposti tarkastelee
     $ sudo cp /usr/share/exploitdb/exploits/macos/dos/43780.c /home/jokke/Desktop 
 ![Alt text](/H3LabKid/h3.i2.png)  
 
-Rehellisesti en paljoa koodista ymmärtänyt, mutta käsitin, että kyseessä on puskurin ylivuoto haavvoittuvuus 'AppleIntelCapriController::getDisplayPipeCapability' moduulissa, jonka avulla järjestelmän muistista on mahdollista saada jotain tietoja.
+Rehellisesti en paljoa koodista ymmärtänyt, mutta käsitin, että kyseessä on puskurin ylivuoto haavoittuvuus 'AppleIntelCapriController::getDisplayPipeCapability' moduulissa, jonka avulla järjestelmän muistista on mahdollista saada jotain tietoja.
 
 ## j) Kokeile vapaavalintaista haavoittuvuusskanneria johonkin Metasploitablen palveluun. 
 Testasin skanneria yleisesti koko metasploitableen. Käytin haavoittuvuuksien skannaukseen niktoa, koska se löytyä valmiina kalilta. 
@@ -247,6 +247,12 @@ Esimerkiksi seuraava komento näyttää gRPC palvelut jotka ovat käynnissä tes
 
       $ grpcurl --plaintext localhost:9092 list
 ![Alt text](/H3LabKid/h3.k4.png)
+
+## m) Vapaaehtoinen: Kokeile hyökkäystä, joka löytyy ExploitDB:sta. Huomaa, että joidenkin vanhempien hyökkäysten mukana tulee harjoitusmaali.
+
+## n) Vapaaehtoinen: Murtaudu johonkin toiseen Metasploitablen palveluun.
+
+## o) Vapaaehtoinen: Asenna ja korkkaa Metasploitable 3. Karvinen 2018: Install Metasploitable 3 – Vulnerable Target Computer
 
 ## Lähteet
 1 https://terokarvinen.com/2023/eettinen-hakkerointi-2023/
