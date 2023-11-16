@@ -81,21 +81,37 @@ Nyt kun avasin kalin foorumin näkyi liikenne zapissa.
 
 ![Alt text](/H3LabKid/h4.a4.png)
 
-## b) Kettumaista. Asenna FoxyProxy Standard Firefox Addon, ja lisää ZAP proxyksi siihen.
+## b) Kettumaista
+Ensiksi suljin ZAPin ja muutin fireroxin "network settings" asetuksia valitsemalla "no proxy". 
+
+Firefox burger-valikko -> more tool -> Extensions for developers -> hea: foxyproxy -> install FoxyProxy Standard.
+
+Avasin FoxyProxy Standardin laajennuksista. Painoin add ja lisäsin nimen, ip:n ja portin.
+
+![Alt text](/H3LabKid/h4.b1.png)
+
+Avasin kali docs sivun ja nyt liikenne näkyy ZAPissa.
+
+![Alt text](/H3LabKid/h4.b2.png)
+
+## 
+
 
 
 ## Lähteet
-https://terokarvinen.com/2023/eettinen-hakkerointi-2023/
+1 https://terokarvinen.com/2023/eettinen-hakkerointi-2023/
 
-https://portswigger.net/web-security/cross-site-scripting
+2 https://portswigger.net/web-security/cross-site-scripting
 
-https://portswigger.net/web-security/ssrf
+3 https://portswigger.net/web-security/ssrf
 
-https://portswigger.net/web-security/server-side-template-injection
+4 https://portswigger.net/web-security/server-side-template-injection
 
-https://portswigger.net/web-security/access-control
+5 https://portswigger.net/web-security/access-control
 
-https://terokarvinen.com/2023/webgoat-2023-4-ethical-web-hacking/
+6 https://terokarvinen.com/2023/webgoat-2023-4-ethical-web-hacking/
+
+7 https://www.youtube.com/watch?v=JY1hsK-8gjI&t=12s&ab_channel=ArkenstoneLearning
 
 
 
