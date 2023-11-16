@@ -118,6 +118,10 @@ Carloksen käyttäjä on nyt vaarantunut.
 
 ## d) File path traversal, simple case
 
+
+## e) File path traversal, traversal sequences blocked with absolute path bypass
+
+
 ## Lähteet
 1 https://terokarvinen.com/2023/eettinen-hakkerointi-2023/
 
