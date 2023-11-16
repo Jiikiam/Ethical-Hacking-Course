@@ -45,11 +45,44 @@ Voi mahdollistaa hyökkääjän suorittaa pyytöjä palvelimille, jotka vaaranta
 
 - Cross-site scripting
 
-Cross-site scripting toimii manipuloimalla haavoittuvaa verkkosivustoa niin, että se palauttaa käyttäjille haitallista JavaScript-koodia. Kun haitallinen koodi suoritetaan kohteen selaimessa, hyökkääjä voi vaarantaa kohteen vuorovaikutuksensa sovelluksen kanssa.
+Cross-site scripting toimii manipuloimalla haavoittuvaa verkkosivustoa niin, että se palauttaa käyttäjille haitallista JavaScript-koodia. Kun haitallinen koodi suoritetaan kohteen selaimessa, hyökkääjä voi vaarantaa kohteen vuorovaikutuksen sovelluksen kanssa.
 
 - Karvinen 2020: Using New Webgoat 2023.4 to Try Web Hacking
 
 New webgoat asennus.
+
+## a) Totally Legit Sertificate 
+Ensiksi asensin javan kalille ja sen jälkeen latasin zapin "Cross Platform Package" https://www.zaproxy.org/download/ sivulta.
+
+    $ sudo apt-get install default-jre
+
+Siirryin downloads kansioon, jossa purin ja käynnistin zapin.
+
+    $ cd Downloads
+    $ unzip ZAP_2.14.0_Crossplatform.zip 
+    $ cd ZAP_2.14.0 
+    $ ./zap.sh
+![Alt text](/H3LabKid/h4.a1.png)
+
+Genereroin sertificaatin zapissa: Tools -> Options -> Dynamic SSL Certificates, ja muutin: Network -> Local Servers/Proxies portin 8081, koska kohtasin aluksi ongelmia. 
+
+![Alt text](/H3LabKid/h4.a2.png)
+![Alt text](/H3LabKid/h4.a6.png)
+
+Kävin lisäämässä sertifikaatin firefoxiin: Firefox -> Preferences -> Privacy & Security -> View Certificates -> Authorities -> Import.
+
+![Alt text](/H3LabKid/h4.a3.png)
+
+Kävin muuttamassa fireroxin "network settings" asetuksia. 
+
+![Alt text](/H3LabKid/h4.a5.png)
+
+Nyt kun avasin kalin foorumin näkyi liikenne zapissa.
+
+![Alt text](/H3LabKid/h4.a4.png)
+
+## b) Kettumaista. Asenna FoxyProxy Standard Firefox Addon, ja lisää ZAP proxyksi siihen.
+
 
 ## Lähteet
 https://terokarvinen.com/2023/eettinen-hakkerointi-2023/
