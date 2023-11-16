@@ -62,24 +62,24 @@ Siirryin downloads kansioon, jossa purin ja käynnistin zapin.
     $ unzip ZAP_2.14.0_Crossplatform.zip 
     $ cd ZAP_2.14.0 
     $ ./zap.sh
-![Alt text](/H3LabKid/h4.a1.png)
+![Alt text](/H4TotallyLegitSertificate/h4.a1.png)
 
 Genereroin sertificaatin zapissa: Tools -> Options -> Dynamic SSL Certificates, ja muutin: Network -> Local Servers/Proxies portin 8081, koska kohtasin aluksi ongelmia. 
 
-![Alt text](/H3LabKid/h4.a2.png)
+![Alt text](/H4TotallyLegitSertificate/h4.a2.png)
 ![Alt text](/H3LabKid/h4.a6.png)
 
 Kävin lisäämässä sertifikaatin firefoxiin: Firefox -> Preferences -> Privacy & Security -> View Certificates -> Authorities -> Import.
 
-![Alt text](/H3LabKid/h4.a3.png)
+![Alt text](/H4TotallyLegitSertificate/h4.a3.png)
 
 Kävin muuttamassa fireroxin "network settings" asetuksia. 
 
-![Alt text](/H3LabKid/h4.a5.png)
+![Alt text](/H4TotallyLegitSertificate/h4.a5.png)
 
 Nyt kun avasin kalin foorumin näkyi liikenne zapissa.
 
-![Alt text](/H3LabKid/h4.a4.png)
+![Alt text](/H4TotallyLegitSertificate/h4.a4.png)
 
 ## b) Kettumaista
 Ensiksi suljin ZAPin ja muutin fireroxin "network settings" asetuksia valitsemalla "no proxy". 
@@ -88,11 +88,11 @@ Firefox burger-valikko -> more tool -> Extensions for developers -> hea: foxypro
 
 Avasin FoxyProxy Standardin laajennuksista. Painoin add ja lisäsin nimen, ip:n ja portin.
 
-![Alt text](/H3LabKid/h4.b1.png)
+![Alt text](/H4TotallyLegitSertificate/h4.b1.png)
 
 Avasin kali docs sivun ja nyt liikenne näkyy ZAPissa.
 
-![Alt text](/H3LabKid/h4.b2.png)
+![Alt text](/H4TotallyLegitSertificate/h4.b2.png)
 
 ## 
 
