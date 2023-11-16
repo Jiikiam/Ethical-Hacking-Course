@@ -94,9 +94,29 @@ Avasin kali docs sivun ja nyt liikenne näkyy ZAPissa.
 
 ![Alt text](/H4TotallyLegitSertificate/h4.b2.png)
 
+## PortSwigger Labs. Ratkaise tehtävät. Selitä ratkaisusi: mitä palvelimella tapahtuu, mitä eri osat tekevät, miten hyökkäys löytyi, mistä vika johtuu. (Voi käyttää ZAPia, vaikka malliratkaisut käyttävät harjoitusten tekijän maksullista ohjelmaa)
+Insecure Direct Object Reference (IDOR)
+c) Insecure direct object references
+Tehtävän annossa kerrottiin, että livechat tallentaa käyttäjien keskustelut suoraan palvelimen tiedostojärjestelmään ja hakee ne staattisten URL-osoitteiden avulla. Kun painoin "View transcript" latautui käyty keskustelu. Keskustelu latautui nimellä "2.txt". Keskeytin liikenteen zapissa ja yritin katsoa mitä tapahtuu. 
+
+Kun liikennettä kelasi yksitelle eteenpäin oli ensimmäisessä response kohdassa sijainti mistä tiedosto ladataan. Normaalisti alussa luku oli "2" ja luku kasvoi aina, kun latasi keskustelun uudelleen "View transcript" kohdasta. 
+
+![Alt text](/H4TotallyLegitSertificate/h4.c3.png)
+
+Muutin sijainnin "1.txt" ja annoin pyynnön mennä läpi. Tällöin koneelle latautui tiedosto "1.txt"
+
+![Alt text](/H4TotallyLegitSertificate/h4.c4.png)
+![Alt text](/H4TotallyLegitSertificate/h4.c1.png)
+
+Tiedostosta nähdään ainakin, että puhe on jostain salasanasta. Oletan, että se on tehtävän annossa halutun carloksen salasana. Muuten jostain pitäisi varmaan saada selville vielä kuka tätä keskustelua olisi käyny, koska normaali tilanteessa käyttäjän nimi ei varmaan ole tiedossa muuten vaan aluksi.
+
+Siirryin "My account" sivulle ja testasin Username: carlos, password: eqcs9eimb4rfmd8lk7r8.
+
+![Alt text](/H4TotallyLegitSertificate/h4.c5.png)
+
+Carloksen käyttäjä on nyt vaarantunut.
+
 ## 
-
-
 
 ## Lähteet
 1 https://terokarvinen.com/2023/eettinen-hakkerointi-2023/
