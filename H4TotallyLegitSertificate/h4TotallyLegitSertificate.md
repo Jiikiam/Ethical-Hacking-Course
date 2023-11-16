@@ -67,7 +67,7 @@ Siirryin downloads kansioon, jossa purin ja käynnistin zapin.
 Genereroin sertificaatin zapissa: Tools -> Options -> Dynamic SSL Certificates, ja muutin: Network -> Local Servers/Proxies portin 8081, koska kohtasin aluksi ongelmia. 
 
 ![Alt text](/H4TotallyLegitSertificate/h4.a2.png)
-![Alt text](/H3LabKid/h4.a6.png)
+![Alt text](/H4TotallyLegitSertificate/h4.a6.png)
 
 Kävin lisäämässä sertifikaatin firefoxiin: Firefox -> Preferences -> Privacy & Security -> View Certificates -> Authorities -> Import.
 
