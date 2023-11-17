@@ -117,9 +117,25 @@ Siirryin "My account" sivulle ja testasin Username: carlos, password: eqcs9eimb4
 Carloksen käyttäjä on nyt vaarantunut.
 
 ## d) File path traversal, simple case
+Tässä harjoituksessa haavoittuvuus on tuotteiden kuvien näyttämisessä. Joten menin katsomaan miltä liikenne näyttää, kun siirtyy yksittäisen tuotteen sivulle. 
 
+Huomasin, että GET pyynnössä oli filename=3.jpg, joten muutin sen osoitteen ../../../etc/passwd.
+
+![Alt text](/H4TotallyLegitSertificate/h4.d3.png)
+
+Sain vastaukseksi seuraavaa:
+
+![Alt text](/H4TotallyLegitSertificate/h4.d2.png)
+
+Vastaus näyttää /etc/passwd kansion sisällön.
+
+![Alt text](/H4TotallyLegitSertificate/h4.d2.png)
+![Alt text](/H4TotallyLegitSertificate/h4.d4.png)
 
 ## e) File path traversal, traversal sequences blocked with absolute path bypass
+
+
+
 
 
 ## Lähteet
