@@ -129,7 +129,6 @@ Sain vastaukseksi seuraavaa:
 
 Vastaus näyttää /etc/passwd kansion sisällön.
 
-![Alt text](/H4TotallyLegitSertificate/h4.d2.png)
 ![Alt text](/H4TotallyLegitSertificate/h4.d4.png)
 
 ## e) File path traversal, traversal sequences blocked with absolute path bypass
