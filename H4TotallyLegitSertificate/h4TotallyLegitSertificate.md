@@ -162,6 +162,41 @@ Muutin GET pyynnön filename=....//....//....//etc/passwd. Vastaukseksi sain jos
 ![Alt text](/H4TotallyLegitSertificate/h4.f5.png)
 ![Alt text](/H4TotallyLegitSertificate/h4.f4.png)
 
+## g) Server-side template injection with information disclosure via user-supplied objects
+Kirjauduin harjoituksessa sisään tehtävänannossa annetuilla tunnuksilla. 
+
+![Alt text](/H4TotallyLegitSertificate/h4.g1.png)
+
+Menin katsomaan jotain tuotetta ja sivun alalaidassa oli "Edit template". Painoin siitä.
+
+![Alt text](/H4TotallyLegitSertificate/h4.g2.png)
+![Alt text](/H4TotallyLegitSertificate/h4.g3.png)
+
+Huomasin, että sivulla on palvelinpuolen template, joten kokeilin yhtien sulkujen sisään 1+1, joka tuotti seuraavaa:
+
+![Alt text](/H4TotallyLegitSertificate/h4.g4.png)
+
+Poistin templatesta muun tekstin paitsi sen mitä halua kokeilla. Tulosteesta huomataan, että kyseessä on django template. Hain netistä miten django template injektioita tehdään. Koska tehtävän annossa luki, että pitää etsiä kehyksen salainen avain, testasin aluksi lähteestä 9 löytämääni kohtaa "Leaking app’s Secret Key" mutta tämä ei tuottanut mitään tulosta.
+
+![Alt text](/H4TotallyLegitSertificate/h4.g5.png)
+
+Testasin seuraavaksi lähteestä löytynyttä "Debug information leak" kohtaa, joka tulosti paljon kaikkea.
+
+![Alt text](/H4TotallyLegitSertificate/h4.g6.png)
+
+Koska en ymmärrä hirveesti tästä mitään, lähteen [11](https://www.youtube.com/watch?v=8o5QPU-BvFQ&ab_channel=SevenSeasSecurity) avulla tiesin mitä hakea ja hain netistä "django settings". Valitsin lähtee [10](https://docs.djangoproject.com/en/4.2/ref/settings/), joka on dokumentaatio djangon asetuksista. Koska tehtävässä etsitään salaista avainta hain sivulta "secret" ja lyösin "SECRET_KEY" kohdan.
+
+Testasin hakea djangon tempaltelta settings.SECRET_KEY
+
+![Alt text](/H4TotallyLegitSertificate/h4.g8.png)
+
+Tämä tulostin jonkun avaimen, joten kokeilin sitä tehtävän "Submit solution" kohtaan ja pääsin harjoituksen läpi.
+
+![Alt text](/H4TotallyLegitSertificate/h4.g9.png)
+![Alt text](/H4TotallyLegitSertificate/h4.g10.png)
+
+## h) Basic SSRF against the local server
+
 ## Lähteet
 1 https://terokarvinen.com/2023/eettinen-hakkerointi-2023/
 
@@ -179,6 +214,11 @@ Muutin GET pyynnön filename=....//....//....//etc/passwd. Vastaukseksi sain jos
 
 8 https://www.youtube.com/watch?v=n0M-nOEB6a8&ab_channel=z3nsh3ll
 
+9 https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Server%20Side%20Template%20Injection/README.md#django-templates
+
+10 https://docs.djangoproject.com/en/4.2/ref/settings/
+
+11 https://www.youtube.com/watch?v=8o5QPU-BvFQ&ab_channel=SevenSeasSecurity
 
 
 
