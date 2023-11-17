@@ -145,7 +145,22 @@ Vastauksena tuli /etc/passwd sisältö.
 ![Alt text](/H4TotallyLegitSertificate/h4.e2.png)
 ![Alt text](/H4TotallyLegitSertificate/h4.e5.png)
 
+## f) File path traversal, traversal sequences stripped non-recursively
+Avasin history ikkunan. Testasin aluksi muokata jonkin pyynnön parametria seuraavaksi filename=../../../etc/passwd.
 
+![Alt text](/H4TotallyLegitSertificate/h4.f1.png)
+![Alt text](/H4TotallyLegitSertificate/h4.f2.png)
+
+Vastaukseksi tuli seuraavaa. 
+
+![Alt text](/H4TotallyLegitSertificate/h4.f3.png)
+
+Koska en ymmärtänyt miksi en saa vastausta katsoin lähteen 8 videon. Selvisi, että yleisesti aina palvelin tarkistaa käyttäjän lähettämät syötteen traversaalisekvenssien varalta ja ne poistetaan. Palvelin tekee tätä niin kauan, kunnes haku ei sisällä enää "../" hakuja. Siksi sain vastaukseksi "504 Gateway Timeout". Kuitenkin tehtävän palvelin tarkastaa käyttäjän syötteen vain kerran jolloin tätä pystytään hyödyntämään lisäämällä "../" toinen samanlainen eli "....//". Tällöin palvelimen tarkistuksen jälkeen jäljelle jää "../" eli polun travertsointi onnistuu.
+
+Muutin GET pyynnön filename=....//....//....//etc/passwd. Vastaukseksi sain jostain syystä saman viestin, vaikka portswiggerin mukaan harjoitus meni läpi. En selvittänyt syytä tälle, koska muutenkin zap käyttö on hankalaa.
+
+![Alt text](/H4TotallyLegitSertificate/h4.f5.png)
+![Alt text](/H4TotallyLegitSertificate/h4.f4.png)
 
 ## Lähteet
 1 https://terokarvinen.com/2023/eettinen-hakkerointi-2023/
@@ -161,6 +176,8 @@ Vastauksena tuli /etc/passwd sisältö.
 6 https://terokarvinen.com/2023/webgoat-2023-4-ethical-web-hacking/
 
 7 https://www.youtube.com/watch?v=JY1hsK-8gjI&t=12s&ab_channel=ArkenstoneLearning
+
+8 https://www.youtube.com/watch?v=n0M-nOEB6a8&ab_channel=z3nsh3ll
 
 
 
