@@ -132,8 +132,18 @@ Vastaus näyttää /etc/passwd kansion sisällön.
 ![Alt text](/H4TotallyLegitSertificate/h4.d4.png)
 
 ## e) File path traversal, traversal sequences blocked with absolute path bypass
+Tehtävä on hyvin samanlainen kuin aikasempi. Valitsin zapissa history. 
 
+![Alt text](/H4TotallyLegitSertificate/h4.e4.png)
 
+Muutin jonkun filename=... perään /etc/passwd ja painoin "replay in console".
+
+![Alt text](/H4TotallyLegitSertificate/h4.e3.png)
+
+Vastauksena tuli /etc/passwd sisältö.
+
+![Alt text](/H4TotallyLegitSertificate/h4.e2.png)
+![Alt text](/H4TotallyLegitSertificate/h4.e5.png)
 
 
 
